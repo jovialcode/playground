@@ -1,0 +1,34 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "ie >= 9"
+          ]
+        },
+        "modules": false
+      }
+    ],
+    "@babel/react",
+    "@babel/typescript"
+  ],
+  "plugins": [
+    "@babel/proposal-optional-chaining",
+    "@babel/proposal-object-rest-spread",
+    [
+      "@babel/proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
+  ]
+}

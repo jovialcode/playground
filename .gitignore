@@ -1,0 +1,9 @@
+### build file ###
+target/
+
+### IntelliJ IDEA ###
+.idea
+
+### NPM modules ###
+/node_modules
+package-lock.json

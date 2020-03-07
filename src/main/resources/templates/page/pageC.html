@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="script/no_react/C_script:: headFragment"/>
+
+    </head>
+
+    <body>
+        <div id="app">
+            <table data-table>
+                <thead>
+                <tr>
+                    <th>
+                        제목이 여기서 바뀌면?gg
+                    </th>
+                    <th>
+                        글쓴이
+                    </th>
+                    <th>
+                        버튼
+                    </th>
+                </tr>
+                </thead>
+                <tbody data-tbody>
+                <tr>
+                    <td>
+                        가나라
+                    </td>
+                    <td colspan="2">
+                        다라마바사
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <th:block th:replace="script/no_react/C_script:: bodyFragment"></th:block>
+    </body>
+
+</html>
