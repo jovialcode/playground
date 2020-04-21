@@ -4,13 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --display-error-details --mode development",
+		"start": "webpack-dev-server --display-error-details --mode development ./webpack/index.js",
 		"devBuild": "webpack --option devBuild --progress",
 		"build": "webpack --mode production --progress",
-		"lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
-		"lint-fix": "eslint src/**/*.{ts,tsx} --fix",
-		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"lint-fix": "eslint src/**/*.{ts,tsx} --fix"
 	},
 	"keywords": [],
 	"author": "",

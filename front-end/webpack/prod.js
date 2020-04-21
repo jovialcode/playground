@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const entries = require('./config/entries');
-const CONFIG = require('./config/config');
+const CONFIG = require('./config');
 
 function getEntryDirPath(entryFilePath) {
     if(typeof entryFilePath !== 'string') return new Error('올바르게 입력해주심이..?');

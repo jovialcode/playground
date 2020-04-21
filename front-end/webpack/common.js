@@ -1,19 +1,12 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const entries = require('./config/entries');
+const CONFIG = require('./config');
 
 module.exports = {
     entry: {
         polyfill: ['@babel/polyfill'],
-        reset: './src/reset.css',
-        //entries.js의 entry 목록 병합
-        ...Object.keys(entries).reduce((prevEntries, entryKey) => {
-            return {
-                ...prevEntries,
-                [entryKey]: entries[entryKey].entry,
-            };
-        }, {}),
+        entry: `${CONFIG.JS_FILE_PATH}/App.tsx`
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
