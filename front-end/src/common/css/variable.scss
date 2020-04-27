@@ -1,0 +1,57 @@
+//static var-----------------------------------------------------------------------------------
+$BASE_FONT_COLOR: #222222;
+$GREEN_FONT_COLOR: #0fc897;
+$COLOR_INFO: #000;
+$COLOR_SUCCESS: #0fc897;
+$COLOR_ERROR: #ff2e2e;
+$COLOR_WARN: #faad14;
+
+$MAX_WIDTH: 1637px;
+$MIN_WIDTH: 1240px;
+$Z_INDEX_BASIC: 1;
+$Z_INDEX_HEADER: 10;
+$Z_INDEX_MODAL: 20;
+$Z_INDEX_TOAST: 30;
+$HEADER_HEIGHT: 80px;
+$FOOTER_HEIGHT: 120px;
+$CONTAINER_MIN_HEIGHT: 800px;
+
+@mixin wrapCenter{
+  width: $MIN_WIDTH;
+  margin: 0 auto;
+}
+
+// float 해제
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+  * html & {
+    height: 1px;
+}
+}
+
+// transform
+// @param {property} $value - none|transform-functions|initial|inherit
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  -o-transform: $value;
+  transform: $value;
+}
+
+// transition
+// @param {property} $target - transition-property
+// @param {duration} $time - transition-duration
+// @param {function} $timing - transition-timing-function
+// @param {delay} $delay - transition-delay
+@mixin transition($target:transform, $time:1s, $timing:cubic-bezier(.25,0,0,1), $delay:0s) {
+  -webkit-transition: $target $time $timing $delay;
+  transition: $target $time $timing $delay;
+}

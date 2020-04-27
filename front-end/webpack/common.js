@@ -6,7 +6,7 @@ const CONFIG = require('./config');
 module.exports = {
     entry: {
         polyfill: ['@babel/polyfill'],
-        App: `${CONFIG.JS_FILE_PATH}/App.tsx`
+        app: `${CONFIG.JS_FILE_PATH}/App.tsx`
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],

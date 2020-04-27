@@ -11,9 +11,8 @@ module.exports = {
     mode: 'production',
     plugins: [
         new MiniCssExtractPlugin({
-            //splitChunks나 비동기 import시 chunkFilename으로 이름 지정
-            chunkFilename: '[name].[contenthash].css',
-            filename: '[name].[contenthash].css',
+            chunkFilename: '[name].css',
+            filename: '[name].css',
         }),
     ],
 };

@@ -15,13 +15,12 @@ module.exports = {
         clientLogLevel : 'info',
         publicPath: '/build',
         contentBase: `${CONFIG.FRONT_STATIC_RESOURCES}/`,
-        port: CONFIG.DEV_SERVER_PORT,
+        port: CONFIG.DEV_SERVER_PORT
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
-            chunkFilename: '[name].css',
-            ignoreOrder: true
+            chunkFilename: '[name].css'
         }),
     ],
 };
