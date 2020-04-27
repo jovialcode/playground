@@ -1,0 +1,46 @@
+@import '../../common/css/variable.scss';
+
+/*layout-----------------------------------------------------------------------------------*/
+
+.container {
+  position: relative;
+  min-height: $CONTAINER_MIN_HEIGHT;
+}
+
+#header {
+  @include center;
+
+  font-family: NotoSanskr_Bold;
+  font-size: 20px;
+  color: #484848;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  height: $HEADER_HEIGHT;
+}
+
+#navigation{
+  @include center;
+
+  > ul {
+    >li {
+      display: inline-block;
+      margin-right: 20px;
+
+      > a{
+        font-family: NotoSanskr_Medium;
+        font-size:16px;
+      }
+
+      &:last-child{
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+
+#footer{
+  @include center;
+
+  height: $FOOTER_HEIGHT;
+}
