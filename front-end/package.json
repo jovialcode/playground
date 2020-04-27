@@ -1,13 +1,10 @@
 {
-	"name": "webpack-setup2",
+	"name": "webpackPlayGround",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --display-error-details --mode development ./webpack/index.js",
-		"devBuild": "webpack --option devBuild --progress",
-		"build": "webpack --mode production --progress",
-		"lint-fix": "eslint src/**/*.{ts,tsx} --fix"
+		"dev": "webpack-dev-server --mode development --config ./webpack/index.js",
+		"build": "webpack --mode production --config ./webpack/index.js"
 	},
 	"keywords": [],
 	"author": "",

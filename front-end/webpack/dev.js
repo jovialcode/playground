@@ -5,15 +5,16 @@ module.exports = {
     mode: 'development',
     output: {
         path: `${CONFIG.FRONT_BUILD_RESOURCES}`,
-        filename : 'app.js',
-        publicPath: "/"
+        filename : '[name].js',
+        publicPath: `${CONFIG.FRONT_BUILD_RESOURCES}/`
     },
     devServer: {
         historyApiFallback: true,
         progress: true,
         inline : true,
         clientLogLevel : 'info',
-        publicPath: '/',
+        publicPath: '/build',
+        contentBase: `${CONFIG.FRONT_STATIC_RESOURCES}/`,
         port: CONFIG.DEV_SERVER_PORT,
     },
     plugins: [

@@ -4,17 +4,14 @@ const path = require('path');
 const commonConfig = require('./common');
 const prodConfig = require('./prod');
 const devConfig = require('./dev');
-const devBuild = require('./devBuild');
+const CONFIG = require('./config');
 
 module.exports = function buildConfig(env, argv) {
     const isOnDevelop = argv.mode !== 'production';
-    const isDevBuild = argv.option === 'devBuild';
 
     console.log(path.resolve(__dirname, '../src'));
+    console.log(`${CONFIG.FRONT_BUILD_RESOURCES}`);
     console.log(argv.mode);
 
-    if(isDevBuild){
-        return merge(commonConfig, devBuild);
-    }
     return merge(commonConfig, isOnDevelop ? devConfig : prodConfig);
 };
