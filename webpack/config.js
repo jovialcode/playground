@@ -14,7 +14,5 @@ module.exports = {
     //웹팩 빌드 ROOT 경로
     WEBPACK_BUILD_RESOURCES : path.resolve(__dirname, '../../src/main/resources/'),
     //데브 서버 포트
-    DEV_SERVER_PORT : 8083,
-    //백앤드 서버 포드
-    BACKEND_SERVER_PORT : 8081
+    DEV_SERVER_PORT : 8082
 };
