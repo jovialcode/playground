@@ -12,13 +12,16 @@ import Footer from "./view/layout/Footer";
 import ContentContainer from "./view/layout/ContentContainer";
 import Main from "./view/Main";
 
+/*ViewModel*/
+import MainVM from "./viewModel/MainVM";
+
 const App = () => {
     return (
         <div className={cx('wrap')}>
             <Header/>
             <Navigation/>
             <ContentContainer
-                children={<Main/>}
+                children={<Main VM={new MainVM()}/>}
             />
             <Footer/>
         </div>

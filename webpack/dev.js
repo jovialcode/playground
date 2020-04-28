@@ -14,7 +14,7 @@ module.exports = {
         inline : true,
         clientLogLevel : 'info',
         publicPath: '/build',
-        contentBase: `${CONFIG.FRONT_STATIC_RESOURCES}/`,
+        contentBase: [`${CONFIG.FRONT_STATIC_RESOURCES}/`, `${CONFIG.FRONT_STATIC_RESOURCES}/data/article/`],
         port: CONFIG.DEV_SERVER_PORT
     },
     plugins: [

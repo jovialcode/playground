@@ -1,17 +1,26 @@
 import React from 'react';
+import {observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './Main.scss';
+import MainVM from "../viewModel/MainVM";
 const cx = classNames.bind(css);
 
-const Main  = () => {
+interface IMain{
+    VM : MainVM
+}
+
+const Main  = observer((prop: IMain) => {
+    const mainVM = prop.VM;
+    const mainArticle = mainVM.mainArticle;
+
     return (
         <div className={cx('wrap')}>
             <div id={cx('main')}>
-                여기는 컨텐츠가 올거입니다.
+                {mainArticle && mainArticle.title}
             </div>
         </div>
     )
-};
+});
 
 export default Main;
