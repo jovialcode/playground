@@ -1,6 +1,12 @@
 export type METHOD_TYPE =
-	| 'get'
+	'get'
 	| 'post';
+
+export type NAVI_TYPE =
+	'MAIN'
+	| 'PLAY_GROUND'
+	| 'LIFE'
+	| 'FLICK'
 
 
 export interface IMainRs {

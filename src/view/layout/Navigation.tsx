@@ -1,10 +1,19 @@
 import React from 'react';
+import {observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './Layout.scss';
 const cx = classNames.bind(css);
 
-const Navigation  = () => {
+import RootVM from "../../viewModel/RootVM";
+
+interface INavigation{
+    VM : RootVM
+}
+
+const Navigation  = observer((prop : INavigation) => {
+    const currentOn = prop.VM.currentOn;
+
     return (
         <nav id={cx('navigation')}>
             <ul>
@@ -14,6 +23,6 @@ const Navigation  = () => {
             </ul>
         </nav>
     )
-};
+});
 
 export default Navigation;
