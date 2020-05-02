@@ -11,6 +11,12 @@ export default class RootVM {
 		this._currentOn = 'MAIN';
 	}
 
+	chageNaviState(state: NAVI_TYPE){
+		console.log('변경된 state:' + state);
+		this._currentOn = state;
+	}
+
+
 	/*********Getter***********/
 	get currentOn(): NAVI_TYPE{
 		return this._currentOn;

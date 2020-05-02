@@ -7,6 +7,7 @@ export type NAVI_TYPE =
 	| 'PLAY_GROUND'
 	| 'LIFE'
 	| 'FLICK'
+	| 'LIST'
 
 
 export interface IMainRs {
