@@ -1,42 +1,42 @@
 import {action, observable} from "mobx";
 
-import {GAME_TYPE} from "../type";
+import {GAME} from "../type";
 
 export default class PlayGroundVM {
-	@observable private _currentGame : GAME_TYPE;
-	@observable private readonly _gameList : GAME_TYPE[];
+	@observable private _currentGame : GAME;
+	@observable private readonly _gameList : GAME[];
 
 	constructor() {
 		this._currentGame = {
 			id: 0,
-			title: 'None'
+			title: 'NONE'
 		};
 		this._gameList = [
 			{
 				id: 1,
-				title: 'tutorial'
+				title: 'TUTORIAL'
 			},
 			{
 				id: 2,
-				title: 'easyGame'
+				title: 'EASY_GAME'
 			},
 			{
 				id: 3,
-				title: 'catLover'
+				title: 'CAT_LOVER'
 			},
 		];
 	}
 
 
-	get currentGame(): GAME_TYPE {
+	get currentGame(): GAME {
 		return this._currentGame;
 	}
 
-	get gameList(): GAME_TYPE[] {
+	get gameList(): GAME[] {
 		return this._gameList;
 	}
 
-	changeGame(game : GAME_TYPE){
+	changeGame(game : GAME){
 		this._currentGame = game;
 	}
 }

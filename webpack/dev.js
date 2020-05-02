@@ -8,6 +8,7 @@ module.exports = {
         filename : '[name].js',
         publicPath: `${CONFIG.FRONT_BUILD_RESOURCES}/`
     },
+    devtool:'source-map',
     devServer: {
         historyApiFallback: true,
         progress: true,
@@ -17,7 +18,8 @@ module.exports = {
         contentBase: [
             `${CONFIG.FRONT_STATIC_RESOURCES}/`,
             `${CONFIG.FRONT_STATIC_RESOURCES}/data/article/`,
-            `${CONFIG.FRONT_STATIC_RESOURCES}/data/game/`
+            `${CONFIG.FRONT_STATIC_RESOURCES}/data/game/`,
+            `${CONFIG.FRONT_STATIC_RESOURCES}/img/`,
         ],
         port: CONFIG.DEV_SERVER_PORT
     },

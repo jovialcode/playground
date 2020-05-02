@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import {GAME_TYPE, NAVI_TYPE} from "../../type";
+import {GAME, NAVI_TYPE} from "../../type";
 import {renderLog} from "../../util";
 
 const GameList  = observer(()=> {
@@ -14,14 +14,14 @@ const GameList  = observer(()=> {
 
     renderLog('gameList');
 
-    const handleChange = (game :GAME_TYPE) => {
+    const handleChange = (game : GAME) => {
         playGroundVM.changeGame(game)
     };
 
     return (
         <ul className={cx('gameList')}>
             {
-                gameList?.map((game:GAME_TYPE)=>{
+                gameList?.map((game:GAME)=>{
                     return (
                         <li key={game.id}>
                             <a href={`#${game.title}`} onClick={()=>{handleChange(game)}}>

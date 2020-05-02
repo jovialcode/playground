@@ -7,18 +7,21 @@ const cx = classNames.bind(css);
 
 import GameManager from "../../core/GameManager";
 import {renderLog} from "../../util";
+import {GAME} from "../../type";
 
 const Game  = observer(()=> {
     const {playGroundVM} = React.useContext(MobXProviderContext);
+    const currentGame : GAME = playGroundVM.currentGame;
 
     renderLog('game');
     useEffect(()=>{
-        GameManager.init();
-    },[]);
+        if(!currentGame.title) return;
+        GameManager.init(currentGame);
+    });
 
 
     return (
-        <div className={cx('game')}>
+        <div id='game' className={cx('game')}>
             여긴 게임 들어옮.
         </div>
     )
