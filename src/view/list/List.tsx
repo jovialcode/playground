@@ -3,7 +3,7 @@ import {observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './List.scss';
-import MainVM from "../viewModel/MainVM";
+import MainVM from "../../viewModel/MainVM";
 const cx = classNames.bind(css);
 
 interface IMain{

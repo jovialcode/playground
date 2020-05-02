@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import React from 'react';
-import {observer} from "mobx-react";
+import {observer, Provider} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './view/layout/Layout.scss';
@@ -12,14 +12,15 @@ import Navigation from "./view/layout/Navigation";
 import Footer from "./view/layout/Footer";
 import ContentContainer from "./view/layout/ContentContainer";
 
-import Main from "./view/Main";
-import PlayGround from "./view/PlayGround";
+import Main from "./view/main/Main";
+import PlayGround from "./view/playground/PlayGround";
 
 /*ViewModel*/
 import MainVM from "./viewModel/MainVM";
 import RootVM from "./viewModel/RootVM";
 
 import PlayGroundVM from "./viewModel/PlayGroundVM";
+import {renderLog} from "./util";
 
 
 /*new Object*/
@@ -27,6 +28,7 @@ const rootVM = new RootVM();
 
 const App = observer(() => {
     const currentOn = rootVM.currentOn;
+    renderLog('App');
 
     const content = () =>{
         switch (currentOn) {
@@ -34,7 +36,11 @@ const App = observer(() => {
                 return <Main VM={new MainVM()}/>
             }
             case 'PLAY_GROUND':{
-                return <PlayGround VM={new PlayGroundVM()}/>
+                return (
+                    <Provider playGroundVM={new PlayGroundVM()}>
+                        <PlayGround/>
+                    </Provider>
+                )
             }
         }
     }

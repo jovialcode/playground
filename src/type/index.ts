@@ -9,6 +9,10 @@ export type NAVI_TYPE =
 	| 'FLICK'
 	| 'LIST'
 
+export type GAME_TYPE = {
+	id: number;
+	title: string;
+}
 
 export interface IMainRs {
 	title : string;
@@ -17,3 +21,12 @@ export interface IMainRs {
 	createDate : string;
 	content : string;
 }
+
+export interface IGameRs {
+	title : string;
+	subTitle : string;
+	keyword : string[];
+	createDate : string;
+	content : string;
+}
+

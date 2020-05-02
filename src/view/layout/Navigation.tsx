@@ -15,7 +15,7 @@ interface INavigation{
 const Navigation  = observer((prop : INavigation) => {
     const currentOn = prop.VM.currentOn;
     const handleChange = (state :NAVI_TYPE) => {
-        prop.VM.chageNaviState(state)
+        prop.VM.changeNavigationState(state)
     };
 
     return (

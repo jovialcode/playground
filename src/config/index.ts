@@ -10,4 +10,5 @@ export const PROJECT_CONFIG = {
 * 	DEV 환경에서 Article path
 * */
 export const DEV_ARTICLE_PATH = path.resolve(__dirname, '/data/article');
+export const DEV_GAME_CONFIG_PATH = path.resolve(__dirname, '/data/game');
 export const ROOT_PATH = path.resolve(__dirname, '../');

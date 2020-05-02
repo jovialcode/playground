@@ -3,19 +3,19 @@ import {observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
-import PlayGroundVM from "../viewModel/PlayGroundVM";
 const cx = classNames.bind(css);
 
-interface IMain{
-    VM : PlayGroundVM
-}
+import GameList from "./GameList";
+import Game from "./Game";
 
-const PlayGround  = observer((prop: IMain) => {
+const PlayGround  = observer(() => {
 
     return (
         <div className={cx('wrap')}>
-            <div id={cx('main')}>
-                여긴 playGround입니다.
+            <div className={cx('gameWrap')}>
+                <GameList/>
+                <Game/>
+
             </div>
         </div>
     )
