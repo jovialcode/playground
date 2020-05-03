@@ -24,7 +24,7 @@ class GameManager{
 
     init(game : GAME){
         switch(game.title){
-            case 'TUTORIAL':{
+            case 'tutorial':{
                 this._game = new TutorialGame();
             }
             default :{

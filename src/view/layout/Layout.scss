@@ -24,12 +24,12 @@
   margin-bottom:90px;
 
   > ul {
-    >li {
+    > li {
       position:relative;
       display: inline-block;
       margin-right: 30px;
 
-      > a{
+      > a {
         font-family: NotoSanskr_Medium;
         font-size:16px;
       }
@@ -53,6 +53,20 @@
 
 #footer{
   @include center;
+  display: table;
 
   height: $FOOTER_HEIGHT;
+  .left{
+    width:500px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+  .right{
+    width: 562px;
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+
 }

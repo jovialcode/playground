@@ -2,15 +2,38 @@
 
 .gameWrap{
   display: flex;
-  .gameList{
-    width:400px;
+  justify-content: center;
 
+  .gameList{
+    width:250px;
+
+    background:#000000;
+    border: 6px solid darkslateblue;
+
+    > li {
+      padding: 8px;
+      h3{
+        color:white;
+      }
+    }
   }
   .game{
-    width:1280px;
+    box-sizing: content-box;
+
+    width:800px;
+    height:600px;
+    background:#000000;
+    border: 6px solid darkslateblue;
   }
 
   .noGame{
-    width:1280px;
+    box-sizing: content-box;
+
+    color:white;
+
+    width:800px;
+    height:600px;
+    background:#000000;
+    border: 6px solid darkslateblue;
   }
 }

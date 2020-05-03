@@ -24,9 +24,9 @@ const GameList  = observer(()=> {
                 gameList?.map((game:GAME)=>{
                     return (
                         <li key={game.id}>
-                            <a href={`#${game.title}`} onClick={()=>{handleChange(game)}}>
+                            <button onClick={()=>{handleChange(game)}}>
                                 <h3>{game.title}</h3>
-                            </a>
+                            </button>
                         </li>
                     );
                 })

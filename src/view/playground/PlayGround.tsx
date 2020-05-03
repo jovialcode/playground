@@ -18,7 +18,7 @@ const PlayGround  = observer(() => {
         <div className={cx('wrap')}>
             <div className={cx('gameWrap')}>
                 <GameList/>
-                {currentGame.title !== 'NONE' ? <Game/> : <NoGame/>}
+                {currentGame.title !== 'none' ? <Game/> : <NoGame/>}
             </div>
         </div>
     )

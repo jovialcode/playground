@@ -6,7 +6,6 @@ import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
 import GameManager from "../../core/GameManager";
-import {renderLog} from "../../util";
 import {GAME} from "../../type";
 
 const Game  = observer(()=> {

@@ -9,20 +9,20 @@ export default class PlayGroundVM {
 	constructor() {
 		this._currentGame = {
 			id: 0,
-			title: 'NONE'
+			title: 'none'
 		};
 		this._gameList = [
 			{
 				id: 1,
-				title: 'TUTORIAL'
+				title: 'tutorial'
 			},
 			{
 				id: 2,
-				title: 'EASY_GAME'
+				title: 'easy_game'
 			},
 			{
 				id: 3,
-				title: 'CAT_LOVER'
+				title: 'cat_lover'
 			},
 		];
 	}

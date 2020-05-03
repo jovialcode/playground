@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import classNames from 'classnames/bind';
 import css from './Layout.scss';
@@ -10,13 +10,13 @@ const Navigation  = () => {
         <nav id={cx('navigation')}>
             <ul>
                 <li>
-                    <Link to='/life'>생활</Link>
+                    <NavLink to='/life' activeClassName="active">생활</NavLink>
                 </li>
                 <li>
-                    <Link to='/flick'>정리정돈</Link>
+                    <NavLink to='/flick' activeClassName="active">정리정돈</NavLink>
                 </li>
                 <li>
-                    <Link to='/playground'>정리정돈</Link>
+                    <NavLink to='/playground' activeClassName="active">오락실</NavLink>
                 </li>
             </ul>
         </nav>

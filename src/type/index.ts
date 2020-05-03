@@ -16,8 +16,8 @@ export type NAVI_TYPE =
 
 
 export type GAME_TYPE =
-	'NONE'
-	| 'TUTORIAL'
+	'none'
+	| 'tutorial'
 
 export type GAME = {
 	id: number;

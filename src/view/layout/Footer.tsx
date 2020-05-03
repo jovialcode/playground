@@ -7,7 +7,14 @@ const cx = classNames.bind(css);
 const Footer  = () => {
     return (
         <footer id={cx('footer')}>
-            여기는 풋터
+            <div className={cx('left')}>
+                JovialCode's PlayGround
+            </div>
+
+            <div className={cx('right')}>
+                email : jovialcoding@gmail.com
+            </div>
+
         </footer>
     )
 };

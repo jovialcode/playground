@@ -13,7 +13,7 @@ const NoGame  = ()=> {
 
     return (
         <div className={cx('noGame')}>
-            게임없음.
+            선택된 게임없음.
         </div>
     )
 };
