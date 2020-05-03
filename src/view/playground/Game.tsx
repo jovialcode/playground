@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {MobXProviderContext, observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
@@ -13,16 +13,16 @@ const Game  = observer(()=> {
     const {playGroundVM} = React.useContext(MobXProviderContext);
     const currentGame : GAME = playGroundVM.currentGame;
 
-    renderLog('game');
     useEffect(()=>{
         if(!currentGame.title) return;
+        const $game = document.getElementById('game');
+        $game.innerHTML= '';
         GameManager.init(currentGame);
     });
 
 
     return (
         <div id='game' className={cx('game')}>
-            여긴 게임 들어옮.
         </div>
     )
 });

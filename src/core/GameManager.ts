@@ -4,8 +4,8 @@ import {reaction} from "mobx";
 import GameModel from "../model/GameModel";
 import {GAME, LOAD_TYPE} from "../type";
 
-import TutorialGame from "./TutorialGame";
-import BaseGame from "./BaseGame";
+import TutorialGame from "../service/game/TutorialGame";
+import BaseGame from "../service/game/BaseGame";
 
 class GameManager{
     private _gameModel : GameModel | null;
@@ -38,7 +38,6 @@ class GameManager{
                     this.run();
                 }
             })
-
     }
 
     stop(){

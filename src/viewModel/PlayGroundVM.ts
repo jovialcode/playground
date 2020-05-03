@@ -4,7 +4,7 @@ import {GAME} from "../type";
 
 export default class PlayGroundVM {
 	@observable private _currentGame : GAME;
-	@observable private readonly _gameList : GAME[];
+	@observable private _gameList : GAME[];
 
 	constructor() {
 		this._currentGame = {
@@ -26,7 +26,6 @@ export default class PlayGroundVM {
 			},
 		];
 	}
-
 
 	get currentGame(): GAME {
 		return this._currentGame;

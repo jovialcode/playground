@@ -16,13 +16,10 @@ export default class RootVM {
 		this._currentOn = state;
 	}
 
-
-	/*********Getter***********/
 	get currentOn(): NAVI_TYPE{
 		return this._currentOn;
 	}
 	
-	/*********Setter***********/
 	set currentOn(value: NAVI_TYPE) {
 		this._currentOn = value;
 	}

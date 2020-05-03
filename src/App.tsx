@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import React from 'react';
+import {BrowserRouter, Route} from "react-router-dom";
 import {observer, Provider} from "mobx-react";
 
 import classNames from 'classnames/bind';
@@ -10,7 +11,6 @@ const cx = classNames.bind(css);
 import Header from "./view/layout/Header";
 import Navigation from "./view/layout/Navigation";
 import Footer from "./view/layout/Footer";
-import ContentContainer from "./view/layout/ContentContainer";
 
 import Main from "./view/main/Main";
 import PlayGround from "./view/playground/PlayGround";
@@ -30,7 +30,7 @@ const App = observer(() => {
     const currentOn = rootVM.currentOn;
     renderLog('App');
 
-    const content = () =>{
+    const content = () => {
         switch (currentOn) {
             case 'MAIN': {
                 return <Main VM={new MainVM()}/>
@@ -47,13 +47,24 @@ const App = observer(() => {
 
     return (
         <div className={cx('wrap')}>
-            <Header VM={rootVM}/>
-            <Navigation VM={rootVM}/>
+            <BrowserRouter>
+                <switch>
+                    <Header VM={rootVM}/>
+                    <Navigation VM={rootVM}/>
+                    <Route path="/" >
+                        <Provider mainVM={new MainVM()}>
+                            <Main/>
+                        </Provider>
+                    </Route>
 
-            <ContentContainer
-                children={content()}
-            />
-            <Footer/>
+                    <Route path="/playground" >
+                        <Provider playGroundVM={new PlayGroundVM()}>
+                            <PlayGround/>
+                        </Provider>
+                    </Route>
+                </switch>
+                <Footer/>
+            </BrowserRouter>
         </div>
     );
 });
