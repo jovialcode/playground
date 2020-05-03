@@ -48,21 +48,19 @@ const App = observer(() => {
     return (
         <div className={cx('wrap')}>
             <BrowserRouter>
-                <switch>
-                    <Header VM={rootVM}/>
-                    <Navigation VM={rootVM}/>
-                    <Route path="/" >
-                        <Provider mainVM={new MainVM()}>
-                            <Main/>
-                        </Provider>
-                    </Route>
+                <Header VM={rootVM}/>
+                <Navigation/>
+                <Route exact path="/" >
+                    <Provider mainVM={new MainVM()}>
+                        <Main/>
+                    </Provider>
+                </Route>
 
-                    <Route path="/playground" >
-                        <Provider playGroundVM={new PlayGroundVM()}>
-                            <PlayGround/>
-                        </Provider>
-                    </Route>
-                </switch>
+                <Route path="/playground" >
+                    <Provider playGroundVM={new PlayGroundVM()}>
+                        <PlayGround/>
+                    </Provider>
+                </Route>
                 <Footer/>
             </BrowserRouter>
         </div>
