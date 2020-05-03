@@ -6,6 +6,7 @@ import {GAME, LOAD_TYPE} from "../type";
 
 import TutorialGame from "../service/game/TutorialGame";
 import BaseGame from "../service/game/BaseGame";
+import CatLoverGame from "../service/game/catLover/CatLoverGame";
 
 class GameManager{
     private _gameModel : GameModel | null;
@@ -26,6 +27,9 @@ class GameManager{
         switch(game.title){
             case 'tutorial':{
                 this._game = new TutorialGame();
+            }
+            case 'cat_lover':{
+                this._game = new CatLoverGame();
             }
             default :{
 
