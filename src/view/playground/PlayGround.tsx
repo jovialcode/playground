@@ -5,9 +5,11 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
+import {GAME} from "../../type";
+
 import GameList from "./GameList";
 import Game from "./Game";
-import {GAME} from "../../type";
+import Rank from "./Rank";
 import NoGame from "./NoGame";
 
 const PlayGround  = observer(() => {
@@ -18,7 +20,8 @@ const PlayGround  = observer(() => {
         <div className={cx('wrap')}>
             <div className={cx('gameWrap')}>
                 <GameList/>
-                {currentGame.title !== 'none' ? <Game/> : <NoGame/>}
+                <Game/>
+                <Rank/>
             </div>
         </div>
     )

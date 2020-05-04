@@ -1,10 +1,10 @@
-export default abstract class BaseGame{
-    abstract config : any;
+export default interface IBaseGame{
+    title: string,
+    width: number,
+    height: number,
 
-    create(){};
-    preload(){};
+    scene: [],
+    backgroundColor : string,
+
+    getConfig : {};
 };
-
-export interface IGame{
-    getConfig : () =>{}
-}

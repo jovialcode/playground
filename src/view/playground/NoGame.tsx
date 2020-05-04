@@ -9,8 +9,7 @@ import GameManager from "../../core/GameManager";
 import {renderLog} from "../../util";
 import {GAME} from "../../type";
 
-const NoGame  = ()=> {
-
+const NoGame  = () => {
     return (
         <div className={cx('noGame')}>
             선택된 게임없음.

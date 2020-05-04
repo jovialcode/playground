@@ -12,9 +12,7 @@ const Footer  = () => {
             </div>
 
             <div className={cx('right')}>
-                email : jovialcoding@gmail.com
             </div>
-
         </footer>
     )
 };

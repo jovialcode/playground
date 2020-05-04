@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 export class BootScene extends Phaser.Scene {
     private _loadingBar: Phaser.GameObjects.Graphics;
     private _progressBar: Phaser.GameObjects.Graphics;

@@ -35,13 +35,6 @@ class GameManager{
 
             }
         }
-        this._gameModel = new GameModel(game);
-        reaction(()=> this._gameModel?.isLoading,
-            (loading)=>{
-                if(loading === 'DONE'){
-                    this.run();
-                }
-            })
     }
 
     stop(){

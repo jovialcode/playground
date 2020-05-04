@@ -13,7 +13,7 @@ const Game  = observer(()=> {
     const currentGame : GAME = playGroundVM.currentGame;
 
     useEffect(()=>{
-        if(!currentGame.title) return;
+        if(currentGame.title === 'none') return;
         const $game = document.getElementById('game');
         $game.innerHTML= '';
         GameManager.init(currentGame);
@@ -22,6 +22,7 @@ const Game  = observer(()=> {
 
     return (
         <div id='game' className={cx('game')}>
+            {currentGame.title === 'none' ? '선택된 게임없음' : ''}
         </div>
     )
 });
