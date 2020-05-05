@@ -1,33 +1,43 @@
-
-import Phaser from 'phaser'
-import IBaseGame from "../BaseGame";
-import {BootScene} from "../BootScene";
+import {BootScene} from "./scene/BootScene";
+import {IBaseGame} from "../../../type";
 
 export default class FruitCrush implements IBaseGame{
-    private title: string;
-    private height: number;
-    private width: number;
-    private backgroundColor: string;
+    private _title: string;
+    private _height: number;
+    private _width: number;
+    private _backgroundColor: string;
 
-    private scene: [];
+    private _scene: [any];
 
     constructor() {
-        this.title = 'FruitCrush';
-        this.backgroundColor = '#de3412'
+        this._title = 'FruitCrush';
+        this._backgroundColor = '#de3412';
 
-        this.height = 700;
-        this.width = 520;
+        this._height = 700;
+        this._width = 520;
 
-        this.scene = [BootScene]
+        this._scene = [BootScene]
     }
     destroy(){}
 
-    getConfig() : Phaser.Types.Core.GameConfig{
-        let config : Phaser.Types.Core.GameConfig = {
-            width : this.width,
+    getConfig(){
+        let config : {} = {
+            _title : this._title,
+            _width : this._width,
+            _height : this._height,
+
+            scene : this._scene
 
         };
 
         return config;
     }
+
+    getHeight(){
+        return this._height;
+    };
+
+    getWidth(){
+        return this._width;
+    };
 };

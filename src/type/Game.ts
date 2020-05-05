@@ -5,11 +5,17 @@ export type GAME_TYPE = {
 
 export enum GAME_LIST{
 	NONE = 'NONE',
-	TUTORIAL = 'TUTORIAL',
-	FRUIT_CRUSH = 'FRUIT_CRUSH'
+	FRUIT_CRUSH = 'FRUIT_CRUSH',
+	CAT_LOVER = 'CAT_LOVER'
 }
 
 export type GAME_LIST_TYPE =
 	'NONE'
-	|'TUTORIAL'
 	|'FRUIT_CRUSH'
+	|'CAT_LOVER'
+
+export interface IBaseGame{
+	getConfig : () => {};
+	getWidth: () => {};
+	getHeight: () => {};
+};

@@ -15,7 +15,7 @@ export default class PlayGroundVM {
 		this._gameList = [
 			{
 				id: 1,
-				title: GAME_LIST.TUTORIAL
+				title: GAME_LIST.CAT_LOVER
 			},
 			{
 				id: 2,
