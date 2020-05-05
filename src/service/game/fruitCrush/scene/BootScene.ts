@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-export class BootScene extends Phaser.Scene {
+export default class BootScene extends Phaser.Scene {
     private _loadingBar: Phaser.GameObjects.Graphics;
     private _progressBar: Phaser.GameObjects.Graphics;
 
@@ -9,14 +9,14 @@ export class BootScene extends Phaser.Scene {
     }
 
     preload(): void {
-        this.cameras.main.setBackgroundColor(0x98d687);
+        this.cameras.main.setBackgroundColor(0);
         this.createLoadingbar();
 
         this.load.on(
             "progress",
             (value : any) => {
                 this._progressBar.clear();
-                this._progressBar.fillStyle(0xfff6d3, 1);
+                this._progressBar.fillStyle(16711680, 1);
                 this._progressBar.fillRect(
                     this.cameras.main.width / 4,
                     this.cameras.main.height / 2 - 16,
@@ -37,7 +37,7 @@ export class BootScene extends Phaser.Scene {
         );
 
         //여기서 리소스 로딩함.
-        this.load.pack("preload", "./assets/pack.json", "preload");
+        this.load.pack("preload", "/data/game/fruitCrush/resource.json", "preload");
     }
 
     update(): void {
@@ -46,7 +46,7 @@ export class BootScene extends Phaser.Scene {
 
     private createLoadingbar(): void {
         this._loadingBar = this.add.graphics();
-        this._loadingBar.fillStyle(0x5dae47, 1);
+        this._loadingBar.fillStyle(0, 1);
         this._loadingBar.fillRect(
             this.cameras.main.width / 4 - 2,
             this.cameras.main.height / 2 - 18,

@@ -3,6 +3,11 @@ export type GAME_TYPE = {
 	title: string;
 }
 
+export type RANK_TYPE = {
+	name: string;
+	score: number;
+}
+
 export enum GAME_LIST{
 	NONE = 'NONE',
 	FRUIT_CRUSH = 'FRUIT_CRUSH',

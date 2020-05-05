@@ -1,6 +1,6 @@
 import {action, observable} from "mobx";
 
-import {GAME_LIST, GAME_TYPE} from "../type";
+import {GAME_LIST, GAME_TYPE, RANK_TYPE} from "../type";
 import GameManager from "../core/GameManager";
 
 export default class PlayGroundVM {
@@ -30,6 +30,23 @@ export default class PlayGroundVM {
 
 	get gameList(): GAME_TYPE[] {
 		return this._gameList;
+	}
+
+	get gameRank(): RANK_TYPE[] {
+		return [
+			{
+				"name": "박명언1",
+				"score": 12345
+			},
+			{
+				"name": "박명언2",
+				"score": 12245
+			},
+			{
+				"name": "박명언3",
+				"score": 12145
+			}
+		];
 	}
 
 	changeGame(game : GAME_TYPE){

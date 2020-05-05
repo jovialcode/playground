@@ -41,16 +41,21 @@ class GameManager{
         }
     }
 
+    combineConfig(config: {}){
+        let gameConfig : Phaser.Types.Core.GameConfig = {
+            ...this._commonConfig,
+            ...config
+        }
+        return gameConfig;
+    }
+
     stop(){
 
     }
 
     run(){
         if(!this._game) return;
-        this._currentOnGame =  new Phaser.Game({
-            ...this._commonConfig,
-            ...this._game.getConfig()
-        });
+        this._currentOnGame =  new Phaser.Game(this.combineConfig(this._game.getConfig()));
     }
 
     resume(){

@@ -1,5 +1,6 @@
-import {BootScene} from "./scene/BootScene";
 import {IBaseGame} from "../../../type";
+import BootScene from "./scene/BootScene";
+import GameScene from "./scene/GameScene";
 
 export default class FruitCrush implements IBaseGame{
     private _title: string;
@@ -16,18 +17,17 @@ export default class FruitCrush implements IBaseGame{
         this._height = 700;
         this._width = 520;
 
-        this._scene = [BootScene]
+        this._scene = [BootScene, GameScene]
     }
     destroy(){}
 
     getConfig(){
         let config : {} = {
-            _title : this._title,
-            _width : this._width,
-            _height : this._height,
+            title : this._title,
+            width : this._width,
+            height : this._height,
 
             scene : this._scene
-
         };
 
         return config;

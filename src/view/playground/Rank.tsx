@@ -5,22 +5,22 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import {GAME_TYPE} from "../../type";
+import {RANK_TYPE} from "../../type";
 import {renderLog} from "../../util";
 
 const Rank  = observer(()=> {
     const {playGroundVM} = React.useContext(MobXProviderContext);
-    const gameList = playGroundVM.gameList;
+    const gameRank = playGroundVM.gameRank;
 
     renderLog('rank');
 
     return (
         <ul className={cx('rank')}>
             {
-                gameList?.map((game:GAME_TYPE)=>{
+                gameRank?.map((rank : RANK_TYPE, index : number)=>{
                     return (
-                        <li key={game.id}>
-                            <h3>{game.title}</h3>
+                        <li key={index}>
+                            <span>이름 : {rank.name}</span><span>점수 : {rank.score}</span>
                         </li>
                     );
                 })

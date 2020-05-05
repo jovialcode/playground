@@ -11,7 +11,6 @@ const Game  = observer(()=> {
     const {playGroundVM} = React.useContext(MobXProviderContext);
     const currentGame : GAME_TYPE = playGroundVM.currentGame;
 
-
     return (
         <div id='game' className={cx('game')}>
             {currentGame.title === 'none' ? '선택된 게임없음' : ''}

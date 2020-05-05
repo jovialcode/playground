@@ -1,7 +1,6 @@
-import {BootScene} from "./scene/BootScene";
 import {IBaseGame} from "../../../type";
 
-export default class FruitCrush implements IBaseGame{
+export default class CatLoverGame implements IBaseGame{
     private _title: string;
     private _height: number;
     private _width: number;
@@ -16,7 +15,7 @@ export default class FruitCrush implements IBaseGame{
         this._height = 700;
         this._width = 520;
 
-        this._scene = [BootScene]
+        this._scene = []
     }
     destroy(){}
 
