@@ -5,7 +5,6 @@ import classNames from 'classnames/bind';
 import css from './Layout.scss';
 const cx = classNames.bind(css);
 
-import {NAVI_TYPE} from "../../type";
 import RootVM from "../../viewModel/RootVM";
 import {Link} from "react-router-dom";
 
@@ -14,14 +13,10 @@ interface IHeader{
 }
 
 const Header  = observer((prop: IHeader) => {
-    const handleChange = (state :NAVI_TYPE) => {
-        prop.VM.chageNaviState(state)
-    };
 
     return (
         <header id={cx('header')}>
             <Link to='/'>오늘을 이기자</Link>
-            {/*<a href={"#"} onClick={()=>{handleChange('MAIN')}}>오늘을 이기자</a>*/}
         </header>
     )
 });

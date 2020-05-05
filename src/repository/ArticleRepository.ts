@@ -1,9 +1,16 @@
 import axios, {AxiosResponse} from 'axios';
 
 import {DEV_ARTICLE_PATH} from "../config";
-import {
-    IMainRs,
-    METHOD_TYPE} from "../type";
+import {METHOD_TYPE} from "../type";
+
+export interface IMainRs {
+    title : string;
+    subTitle : string;
+    keyword : string[];
+    createDate : string;
+    content : string;
+}
+
 
 class ArticleRepository{
     private readonly _path : string;

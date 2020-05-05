@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import {GAME, NAVI_TYPE} from "../../type";
+import {GAME} from "../../type";
 import {renderLog} from "../../util";
 
 const GameList  = observer(()=> {

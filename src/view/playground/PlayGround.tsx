@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import {GAME} from "../../type";
+import {GAME_TYPE} from "../../type";
 
 import GameList from "./GameList";
 import Game from "./Game";
@@ -15,7 +15,7 @@ import {modeChange, renderLog} from "../../util";
 const PlayGround  = observer(() => {
     renderLog('PlayGround');
     const {playGroundVM} = React.useContext(MobXProviderContext);
-    const currentGame : GAME = playGroundVM.currentGame;
+    const currentGame : GAME_TYPE = playGroundVM.currentGame;
 
     useEffect(()=>{
         //모드 색상 변경

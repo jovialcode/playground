@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import {GAME, NAVI_TYPE} from "../../type";
+import {GAME_TYPE} from "../../type";
 import {renderLog} from "../../util";
 
 const Rank  = observer(()=> {
@@ -17,7 +17,7 @@ const Rank  = observer(()=> {
     return (
         <ul className={cx('rank')}>
             {
-                gameList?.map((game:GAME)=>{
+                gameList?.map((game:GAME_TYPE)=>{
                     return (
                         <li key={game.id}>
                             <h3>{game.title}</h3>
