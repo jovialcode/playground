@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-export default class TutorialGame extends Phaser.Scene{
+export default class Tutorial extends Phaser.Scene{
     private _config : any;
 
     constructor() {

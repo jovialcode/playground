@@ -9,7 +9,6 @@ const cx = classNames.bind(css);
 
 /*UTIL*/
 import {renderLog} from "./util";
-import {modeChange} from "./helper";
 
 /*View*/
 import Header from "./view/layout/Header";
@@ -18,6 +17,8 @@ import Footer from "./view/layout/Footer";
 
 import Main from "./view/main/Main";
 import PlayGround from "./view/playground/PlayGround";
+import Life from "./view/life/Life";
+import Flick from "./view/flick/Flick";
 
 /*ViewModel*/
 import MainVM from "./viewModel/MainVM";
@@ -29,6 +30,8 @@ const root = document.getElementById("app");
 const rootVM = new RootVM();
 
 const App = observer(() => {
+    renderLog('app render');
+
     return (
         <div className={cx('wrap')}>
             <BrowserRouter>
@@ -37,6 +40,18 @@ const App = observer(() => {
                 <Route exact path="/" >
                     <Provider mainVM={new MainVM()}>
                         <Main/>
+                    </Provider>
+                </Route>
+
+                <Route path="/life" >
+                    <Provider playGroundVM={new PlayGroundVM()}>
+                        <Life/>
+                    </Provider>
+                </Route>
+
+                <Route path="/flick" >
+                    <Provider playGroundVM={new PlayGroundVM()}>
+                        <Flick/>
                     </Provider>
                 </Route>
 

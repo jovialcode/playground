@@ -1,14 +1,14 @@
 import {action, observable} from "mobx";
 
 import GameRepository from "../repository/GameRepository";
-import {GAME, LOAD_TYPE} from "../type";
+import {GAME_TYPE, LOAD_TYPE} from "../type";
 
 export default class GameModel{
-    private _currentGame : GAME;
+    private _currentGame : GAME_TYPE;
     @observable private _isLoading : LOAD_TYPE;
     @observable private _data :any;
 
-    constructor(game : GAME) {
+    constructor(game : GAME_TYPE) {
         this._currentGame = game;
         this._isLoading = 'NONE';
         this.load();
@@ -32,7 +32,7 @@ export default class GameModel{
     }
 
 
-    get currentGame(): GAME {
+    get currentGame(): GAME_TYPE {
         return this._currentGame;
     }
 

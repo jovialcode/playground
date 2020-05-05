@@ -1,18 +1,16 @@
 import Phaser from 'phaser'
-import {reaction} from "mobx";
 
 import GameModel from "../model/GameModel";
-import {GAME, LOAD_TYPE} from "../type";
+import {GAME_LIST, GAME_TYPE} from "../type";
 
-import TutorialGame from "../service/game/TutorialGame";
+import Tutorial from "../service/game/Tutorial";
 import BaseGame from "../service/game/BaseGame";
-import CatLoverGame from "../service/game/catLover/CatLoverGame";
+import FruitCrush from "../service/game/fruitCrush/FruitCrush";
 
 class GameManager{
     private _gameModel : GameModel | null;
     private _runGame : any;
     private _game : BaseGame | null;
-
 
     constructor() {
         this._gameModel = null;
@@ -23,16 +21,18 @@ class GameManager{
         this._gameModel = null;
     }
 
-    init(game : GAME){
+    init(game : GAME_TYPE){
         switch(game.title){
-            case 'tutorial':{
-                this._game = new TutorialGame();
+            case GAME_LIST.TUTORIAL:{
+                this._game = new Tutorial();
+                break;
             }
-            case 'cat_lover':{
-                this._game = new CatLoverGame();
+            case GAME_LIST.FRUIT_CRUSH:{
+                this._game = new FruitCrush();
+                break;
             }
             default :{
-
+                //NONE일때 처리해야함
             }
         }
     }

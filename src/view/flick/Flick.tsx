@@ -2,15 +2,13 @@ import React, {useEffect} from 'react';
 import {MobXProviderContext, observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
-import css from './Main.scss';
+import css from './Flick.scss';
 import {modeChange, renderLog} from "../../util";
 
 const cx = classNames.bind(css);
 
-const Main  = observer(() => {
-    renderLog('main');
-    const {mainVM} = React.useContext(MobXProviderContext);
-    const mainArticle = mainVM.mainArticle;
+const Flick  = observer(() => {
+    renderLog('flick');
 
     useEffect(()=>{
         //모드 색상 변경
@@ -19,12 +17,11 @@ const Main  = observer(() => {
 
     return (
         <div className={cx('wrap')}>
-            <div id={cx('main')}>
-                {mainArticle && mainArticle.title}
-                Main Empty
+            <div id={cx('flick')}>
+                Flick Empty
             </div>
         </div>
     )
 });
 
-export default Main;
+export default Flick;

@@ -5,19 +5,11 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import GameManager from "../../core/GameManager";
 import {GAME_TYPE} from "../../type";
 
 const Game  = observer(()=> {
     const {playGroundVM} = React.useContext(MobXProviderContext);
     const currentGame : GAME_TYPE = playGroundVM.currentGame;
-
-    useEffect(()=>{
-        if(currentGame.title === 'none') return;
-        const $game = document.getElementById('game');
-        $game.innerHTML= '';
-        GameManager.init(currentGame);
-    });
 
 
     return (
