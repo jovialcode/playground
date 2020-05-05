@@ -8,7 +8,7 @@ module.exports = {
     //Front_End JS 경로
     JS_FILE_PATH : path.resolve(__dirname, '../src/'),
     //프론트 빌드 경로
-    FRONT_BUILD_RESOURCES : path.resolve(__dirname, '../build/'),
+    FRONT_BUILD_RESOURCES : path.resolve(__dirname, '../public/build/'),
     //프론트 정적 경로
     FRONT_STATIC_RESOURCES : path.resolve(__dirname, '../public'),
     //웹팩 빌드 ROOT 경로

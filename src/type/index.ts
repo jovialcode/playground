@@ -1,3 +1,5 @@
+export * from './Layout'; //레이아웃 타입정의
+
 export type METHOD_TYPE =
 	'get'
 	| 'post';
@@ -31,12 +33,3 @@ export interface IMainRs {
 	createDate : string;
 	content : string;
 }
-
-export interface IGameRs {
-	title : string;
-	subTitle : string;
-	keyword : string[];
-	createDate : string;
-	content : string;
-}
-

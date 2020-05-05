@@ -25,7 +25,7 @@ const GameList  = observer(()=> {
                     return (
                         <li key={game.id}>
                             <button onClick={()=>{handleChange(game)}}>
-                                <h3>{game.title}</h3>
+                                {game.title}
                             </button>
                         </li>
                     );
