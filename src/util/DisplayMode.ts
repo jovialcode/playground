@@ -7,7 +7,7 @@ export const modeChange = (type : DISPLAY_MODE_TYPE) : void => {
 	const as = document.getElementsByTagName('a');
 
 	let changeArray: Array<any> = [];
-	changeArray = Array.from(as).concat(Array.from(buttons));
+	changeArray = Array.from(as).concat(Array.from(buttons) as Array<any>);
 
 	if(!app) return;
 
@@ -33,6 +33,6 @@ export const modeChange = (type : DISPLAY_MODE_TYPE) : void => {
 		}
 	}
 
-	
+
 
 };

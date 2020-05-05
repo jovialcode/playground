@@ -10,9 +10,7 @@ import {GAME} from "../../type";
 import GameList from "./GameList";
 import Game from "./Game";
 import Rank from "./Rank";
-import NoGame from "./NoGame";
-import {modeChange} from "../../helper";
-import {renderLog} from "../../util";
+import {modeChange, renderLog} from "../../util";
 
 const PlayGround  = observer(() => {
     renderLog('PlayGround');
