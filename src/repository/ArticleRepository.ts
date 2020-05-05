@@ -18,7 +18,7 @@ class ArticleRepository{
 
     constructor() {
         this._path = DEV_ARTICLE_PATH ;
-        this._method = 'get';
+        this._method = 'GET';
     }
 
     async loadMain() : Promise<AxiosResponse<IMainRs>>{
