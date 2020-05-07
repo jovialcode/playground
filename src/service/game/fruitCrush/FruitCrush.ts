@@ -8,7 +8,7 @@ export default class FruitCrush implements IBaseGame{
     private _width: number;
     private _backgroundColor: string;
 
-    private _scene: [any];
+    private _scene: ReadonlyArray<Phaser.Scene>;
 
     constructor() {
         this._title = 'FruitCrush';
@@ -17,7 +17,7 @@ export default class FruitCrush implements IBaseGame{
         this._height = 700;
         this._width = 520;
 
-        this._scene = [BootScene, GameScene]
+        this._scene = [new BootScene(), new GameScene()]
     }
     destroy(){}
 
