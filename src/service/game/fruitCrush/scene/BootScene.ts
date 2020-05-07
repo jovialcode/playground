@@ -1,6 +1,6 @@
 export default class BootScene extends Phaser.Scene {
-    private _loadingBar: Phaser.GameObjects.Graphics;
-    private _progressBar: Phaser.GameObjects.Graphics;
+    private _loadingBar: Phaser.GameObjects.Graphics | null = null;
+    private _progressBar: Phaser.GameObjects.Graphics | null = null;
 
     constructor() {
         super('BootScene');
@@ -13,9 +13,9 @@ export default class BootScene extends Phaser.Scene {
         this.load.on(
             "progress",
             (value : any) => {
-                this._progressBar.clear();
-                this._progressBar.fillStyle(16711680, 1);
-                this._progressBar.fillRect(
+                this._progressBar?.clear();
+                this._progressBar?.fillStyle(16711680, 1);
+                this._progressBar?.fillRect(
                     this.cameras.main.width / 4,
                     this.cameras.main.height / 2 - 16,
                     (this.cameras.main.width / 2) * value,
@@ -28,8 +28,8 @@ export default class BootScene extends Phaser.Scene {
         this.load.on(
             "complete",
             () => {
-                this._progressBar.destroy();
-                this._loadingBar.destroy();
+                this._progressBar?.destroy();
+                this._loadingBar?.destroy();
             },
             this
         );

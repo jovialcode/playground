@@ -6,7 +6,7 @@ export default class CatLoverGame implements IBaseGame{
     private _width: number;
     private _backgroundColor: string;
 
-    private _scene: [any];
+    private _scene: [];
 
     constructor() {
         this._title = 'FruitCrush';
