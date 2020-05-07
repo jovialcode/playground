@@ -1,5 +1,7 @@
 @import 'src/common/css/variable';
 
 #life{
-  height: $CONTAINER_MIN_HEIGHT;
+  display: flex;
+  justify-content: center;
+  align-self: stretch;
 }
