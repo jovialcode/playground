@@ -3,14 +3,14 @@ import { Tile } from "../object/Tile";
 
 export default class GameScene extends Phaser.Scene {
     // Variables
-    private canMove: boolean;
+    private canMove: boolean | null = null;
 
     // Grid with tiles
-    private tileGrid: Tile[][];
+    private tileGrid: Tile[][] = [];
 
     // Selected Tiles
-    private firstSelectedTile: Tile;
-    private secondSelectedTile: Tile;
+    private firstSelectedTile: Tile | undefined = undefined;
+    private secondSelectedTile: Tile | undefined = undefined;
 
     constructor() {
         super({
@@ -72,7 +72,7 @@ export default class GameScene extends Phaser.Scene {
      * @param gameobject
      * @param event
      */
-    private tileDown(pointer, gameobject, event): void {
+    private tileDown(pointer, gameobject: Tile, event): void {
         if (this.canMove) {
             if (!this.firstSelectedTile) {
                 this.firstSelectedTile = gameobject;
@@ -231,10 +231,10 @@ export default class GameScene extends Phaser.Scene {
         this.secondSelectedTile = undefined;
     }
 
-    private removeTileGroup(matches): void {
+    private removeTileGroup(matches: Tile[][]): void {
         // Loop through all the matches and remove the associated tiles
         for (var i = 0; i < matches.length; i++) {
-            var tempArr = matches[i];
+            const tempArr = matches[i];
 
             for (var j = 0; j < tempArr.length; j++) {
                 let tile = tempArr[j];
@@ -250,7 +250,7 @@ export default class GameScene extends Phaser.Scene {
         }
     }
 
-    private getTilePos(tileGrid, tile): any {
+    private getTilePos(tileGrid: Tile[][], tile: Tile): any {
         let pos = { x: -1, y: -1 };
 
         //Find the position of a specific tile in the grid
@@ -268,9 +268,9 @@ export default class GameScene extends Phaser.Scene {
         return pos;
     }
 
-    private getMatches(tileGrid): Tile[] {
-        let matches = [];
-        let groups = [];
+    private getMatches(tileGrid: Tile[][]): Tile[][] {
+        let matches: Tile[][] = [];
+        let groups: Tile[] = [];
 
         // Check for horizontal matches
         for (let y = 0; y < tileGrid.length; y++) {

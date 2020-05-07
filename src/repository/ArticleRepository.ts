@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
 
 import {DEV_ARTICLE_PATH} from "../config";
-import {METHOD_TYPE} from "../type";
+import {METHOD, METHOD_TYPE} from "../type";
 
 export interface IMainRs {
     title : string;
@@ -18,7 +18,7 @@ class ArticleRepository{
 
     constructor() {
         this._path = DEV_ARTICLE_PATH ;
-        this._method = 'GET';
+        this._method = METHOD.GET;
     }
 
     async loadMain() : Promise<AxiosResponse<IMainRs>>{

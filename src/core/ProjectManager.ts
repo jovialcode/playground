@@ -1,4 +1,4 @@
-import PROJECT_CONFIG from '../config/index';
+import {PROJECT_CONFIG} from '../config';
 
 class ProjectManager{
     private readonly _mode : string;

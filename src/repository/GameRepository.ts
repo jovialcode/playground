@@ -1,10 +1,8 @@
 import axios, {AxiosResponse} from 'axios';
 
 import {DEV_GAME_CONFIG_PATH} from "../config";
-import {
-    IMainRs,
-    METHOD_TYPE
-} from "../type";
+import {METHOD, METHOD_TYPE} from "../type";
+import {IMainRs} from "./ArticleRepository";
 
 class GameRepository{
     private readonly _path : string;
@@ -12,7 +10,7 @@ class GameRepository{
 
     constructor() {
         this._path = DEV_GAME_CONFIG_PATH ;
-        this._method = 'get';
+        this._method = METHOD.GET;
     }
 
     async loadGame(gameTitle : string) : Promise<AxiosResponse<IMainRs>>{
