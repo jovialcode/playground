@@ -8,7 +8,7 @@ export default class BootScene extends Phaser.Scene {
 
     preload(): void {
         this.cameras.main.setBackgroundColor(0);
-        this.createLoadingbar();
+        this.createLoadingBar();
 
         this.load.on(
             "progress",
@@ -42,7 +42,7 @@ export default class BootScene extends Phaser.Scene {
         this.scene.start("GameScene");
     }
 
-    private createLoadingbar(): void {
+    private createLoadingBar(): void {
         this._loadingBar = this.add.graphics();
         this._loadingBar.fillStyle(0, 1);
         this._loadingBar.fillRect(
