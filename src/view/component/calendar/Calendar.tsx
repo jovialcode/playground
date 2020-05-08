@@ -10,6 +10,7 @@ import {CalendarDayOfWeek, ICalendarDayOfWeek} from "../../../type/Calendar";
 
 const CalendarBody = () => {
     const currentDay = new Date();
+    currentDay.setMonth(currentDay.getMonth()+2);
     const firstDay = getFirstDayOfMonth(currentDay);
     const lastDay = getLastDayOfMonth(currentDay);
     const result = createCalendarDay(firstDay, lastDay);
