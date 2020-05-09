@@ -48,8 +48,6 @@ export const createCalendarDay = (s : Date, e : Date) => {
     const eDay = e.getDay();
     let aMonth : ICalendarDay[][] = [];
 
-    if(sDay <= eDay)
-
      for(let i = sDate; i < eDate + 7; i += 7){
          const d = new Date(s.getFullYear(), s.getMonth(), i);
          aMonth.push(get7DaysOfWeek(d, i));

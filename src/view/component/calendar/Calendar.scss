@@ -36,7 +36,9 @@
       cursor: pointer;
 
       &:first-child{
+        margin-top:10px;
         cursor: initial;
+        font-family: NotoSanskr_Medium;
 
         .box:hover > span.text{
           background-color: white;

@@ -1,57 +1,79 @@
 import React from 'react';
-import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
+import {GrFormPrevious, GrFormNext} from "react-icons/gr";
 
 import classNames from 'classnames/bind';
 import css from './Calendar.scss';
 const cx = classNames.bind(css);
 
 import {createCalendarDay, getFirstDayOfMonth, getLastDayOfMonth, renderLog} from "../../../util";
-import {CalendarDayOfWeek, ICalendarDayOfWeek} from "../../../type/Calendar";
+import {CalendarDayOfWeek, ICalendarDay, ICalendarDayOfWeek} from "../../../type/Calendar";
 
-const CalendarBody = () => {
-    const currentDay = new Date();
-    currentDay.setMonth(currentDay.getMonth()+2);
-    const firstDay = getFirstDayOfMonth(currentDay);
-    const lastDay = getLastDayOfMonth(currentDay);
-    const result = createCalendarDay(firstDay, lastDay);
+interface IDays{
+    result : ICalendarDay[][]
+}
 
-    const Week = () => {
-        return (
-            <div className={cx('row')}>
-                {
-                    CalendarDayOfWeek.map((v: ICalendarDayOfWeek, idx) => {
-                        return (
-                            <div key={idx} className={cx('box')}>
-                                <span className={cx('text')} style={{color:v.color}}>{v.name}</span>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        )
-    };
-    const Day = () => {
-        {result}
-    };
+const Week = () => {
     return (
-        <div className={cx('body')}>
-            <Week/>
+        <div className={cx('row')}>
+            {
+                CalendarDayOfWeek.map((v: ICalendarDayOfWeek, idx) => {
+                    return (
+                        <div key={idx} className={cx('box')}>
+                            <span className={cx('text')} style={{color:v.color}}>{v.name}</span>
+                        </div>
+                    )
+                })
+            }
         </div>
     )
-}
+};
+
+const Days = (prop: IDays) => {
+    return (
+        <>
+            {
+                prop?.result.map( (arr : ICalendarDay[], rowIdx : number) => {
+                    return (<div key={rowIdx} className={cx('row')}>
+                            {
+                                arr.map((v: ICalendarDay, idx : number) => {
+                                    return (
+                                        <div key={idx} className={cx('box')}>
+                                            <span className={cx('text')} style={{color:v.color}}>{v.name}</span>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    )
+                })
+            }
+        </>
+    )
+};
 
 
 const Calendar  = () => {
     renderLog('calendar');
 
+    const currentDay = new Date();
+    const firstDay = getFirstDayOfMonth(currentDay);
+    const lastDay = getLastDayOfMonth(currentDay);
+    const result = createCalendarDay(firstDay, lastDay);
+    const currentDate = () =>{
+        return `${currentDay.getFullYear()}년 ${currentDay.getMonth() + 1}월`
+    };
+
     return (
         <div className={cx('calendar')}>
             <div className={cx('head')}>
-                <button><FiChevronLeft/></button>
-                <span className="title">2020년 05월</span>
-                <button><FiChevronRight/></button>
+                <button><GrFormPrevious/></button>
+                <span className="title">{currentDate()}</span>
+                <button><GrFormNext/></button>
             </div>
-            <CalendarBody/>
+            <div className={cx('body')}>
+                <Week/>
+                <Days result={result}/>
+            </div>
         </div>
     )
 };
