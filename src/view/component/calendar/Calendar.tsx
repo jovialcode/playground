@@ -63,12 +63,12 @@ const Calendar  = observer(() => {
     const days = calendarVM.result;
     const currentDate = calendarVM.currentDate;
 
-    const previewMonthClickHandler = (e)=>{
+    const previewMonthClickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
         e.preventDefault();
         calendarVM.prevMonthClick();
     };
 
-    const nextMonthClickHandler = (e)=>{
+    const nextMonthClickHandler = (e : React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
         e.preventDefault();
         calendarVM.nextMonthClick();
     };
@@ -77,7 +77,7 @@ const Calendar  = observer(() => {
         <div className={cx('calendar')}>
             <div className={cx('head')}>
                 <button onClick={(e)=>{previewMonthClickHandler(e)}}><GrFormPrevious/></button>
-                <span className="title">{currentDate}</span>
+                <span className={cx('title')}>{currentDate}</span>
                 <button onClick={(e)=>{nextMonthClickHandler(e)}}><GrFormNext/></button>
             </div>
             <div className={cx('body')}>

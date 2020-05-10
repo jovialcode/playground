@@ -4,6 +4,7 @@ import GameModel from "../model/GameModel";
 import {GAME_LIST, GAME_TYPE, IBaseGame} from "../type";
 
 import FruitCrush from "../service/game/fruitCrush/FruitCrush";
+import CatShooter from "../service/game/catShooter/CatShooter";
 
 class GameManager{
     private _gameModel : GameModel | null; //랭킹 정보 불러올 모델, 중간 세이브 되려나?
@@ -32,6 +33,11 @@ class GameManager{
         switch(game.title){
             case GAME_LIST.FRUIT_CRUSH:{
                 this._game = new FruitCrush();
+                this.run();
+                break;
+            }
+            case GAME_LIST.CAT_SHOOTER: {
+                this._game = new CatShooter();
                 this.run();
                 break;
             }

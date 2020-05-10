@@ -1,0 +1,21 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "leon",
+        "url": "/img/catShooter/leon.png"
+      },
+      {
+        "type": "image",
+        "key": "bullet",
+        "url": "/img/catShooter/bullet.png"
+      },
+      {
+        "type": "image",
+        "key": "preload",
+        "url": "/img/catShooter/preload.png"
+      }
+    ]
+  }
+}

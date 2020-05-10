@@ -20,6 +20,10 @@ export default class PlayGroundVM {
 			{
 				id: 2,
 				title: GAME_LIST.FRUIT_CRUSH
+			},
+			{
+				id: 3,
+				title: GAME_LIST.CAT_SHOOTER
 			}
 		];
 	}
