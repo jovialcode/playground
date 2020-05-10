@@ -14,6 +14,14 @@ export default class CalendarModel{
         this._lastDay = getLastDayOfMonth(d);
     }
 
+    @action
+    changeDay(d : Date){
+        this._day = d;
+
+        this._firstDay = getFirstDayOfMonth(d);
+        this._lastDay = getLastDayOfMonth(d);
+    }
+
     get day(): Date {
         return this._day;
     }
@@ -24,17 +32,5 @@ export default class CalendarModel{
 
     get lastDay(): Date {
         return this._lastDay;
-    }
-
-    set day(value: Date) {
-        this._day = value;
-    }
-
-    set firstDay(value: Date) {
-        this._firstDay = value;
-    }
-
-    set lastDay(value: Date) {
-        this._lastDay = value;
     }
 }

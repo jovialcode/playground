@@ -63,12 +63,22 @@ const Calendar  = observer(() => {
     const days = calendarVM.result;
     const currentDate = calendarVM.currentDate;
 
+    const previewMonthClickHandler = (e)=>{
+        e.preventDefault();
+        calendarVM.prevMonthClick();
+    };
+
+    const nextMonthClickHandler = (e)=>{
+        e.preventDefault();
+        calendarVM.nextMonthClick();
+    };
+
     return (
         <div className={cx('calendar')}>
             <div className={cx('head')}>
-                <button><GrFormPrevious/></button>
+                <button onClick={(e)=>{previewMonthClickHandler(e)}}><GrFormPrevious/></button>
                 <span className="title">{currentDate}</span>
-                <button><GrFormNext/></button>
+                <button onClick={(e)=>{nextMonthClickHandler(e)}}><GrFormNext/></button>
             </div>
             <div className={cx('body')}>
                 <Week weekList={week}/>

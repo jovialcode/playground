@@ -1,4 +1,4 @@
-import {computed, observable} from "mobx";
+import {action, computed, observable} from "mobx";
 
 import CalendarModel from "./CalendarModel";
 import {createCalendarDay} from "../../../util";
@@ -60,8 +60,16 @@ export default class CalendarVM{
     };
 
     nextMonthClick(){
+        const currentDay = this._calendarModel.day;
+        this._calendarModel.changeDay(
+            new Date(currentDay.getFullYear(), currentDay.getMonth() + 1)
+        )
     }
 
     prevMonthClick(){
+        const currentDay = this._calendarModel.day;
+        this._calendarModel.changeDay(
+            new Date(currentDay.getFullYear(), currentDay.getMonth() - 1)
+        )
     }
 }
