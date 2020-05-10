@@ -1,7 +1,7 @@
 import {action, computed, observable} from "mobx";
 
 import CalendarModel from "./CalendarModel";
-import {createCalendarDay} from "../../../util";
+import {createCalendarDay, getNextMonth, getPrevMonth} from "../../../util";
 import {ICalendarDayOfWeek, ShortDayOfWeek} from "../../../type/Calendar";
 
 export default class CalendarVM{
@@ -62,14 +62,14 @@ export default class CalendarVM{
     nextMonthClick(){
         const currentDay = this._calendarModel.day;
         this._calendarModel.changeDay(
-            new Date(currentDay.getFullYear(), currentDay.getMonth() + 1)
+            getNextMonth(currentDay)
         )
     }
 
     prevMonthClick(){
         const currentDay = this._calendarModel.day;
         this._calendarModel.changeDay(
-            new Date(currentDay.getFullYear(), currentDay.getMonth() - 1)
+            getPrevMonth(currentDay)
         )
     }
 }

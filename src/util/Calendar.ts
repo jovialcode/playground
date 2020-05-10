@@ -7,6 +7,7 @@ export const getPrevMonth = (d : Date) => {
 export const getNextMonth = (d : Date) =>{
     return new Date(d.getFullYear(), d.getMonth() + 1, d.getDate());
 };
+
 export const getFirstDayOfMonth = (d : Date) =>{
     return new Date(d.getFullYear(), d.getMonth(), 1);
 };
@@ -16,7 +17,8 @@ export const getLastDayOfMonth = (d : Date) => {
 
 export const getCountDaysOfMonth = (d: Date) =>{
     return new Date(d.getFullYear(),d.getMonth(),0).getDate();
-}
+};
+
 export const get7DaysOfWeek = (d : Date, weekIndex: number) => {
     const day = d.getDay();
     let year = d.getFullYear();
@@ -27,7 +29,6 @@ export const get7DaysOfWeek = (d : Date, weekIndex: number) => {
     }
     let aWeek: ICalendarDay[] = [];
 
-    //TODO 여기 보정해야함.
     for(let i = 0; i <7; i++){
         let j = i - day;
         const t = new Date(year, month, j + weekIndex);
@@ -44,8 +45,6 @@ export const get7DaysOfWeek = (d : Date, weekIndex: number) => {
 export const createCalendarDay = (s : Date, e : Date) => {
     const sDate = s.getDate();
     const eDate = e.getDate();
-    const sDay = s.getDay();
-    const eDay = e.getDay();
     let aMonth : ICalendarDay[][] = [];
 
      for(let i = sDate; i < eDate + 7; i += 7){
@@ -53,4 +52,4 @@ export const createCalendarDay = (s : Date, e : Date) => {
          aMonth.push(get7DaysOfWeek(d, i));
      }
      return aMonth;
-}
+};
