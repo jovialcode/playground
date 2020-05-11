@@ -4,6 +4,8 @@ import Bullets from "../object/Bullets";
 export default class GameScene extends Phaser.Scene {
     private _leon : Leon | null = null;
     private _bullets : Bullets;
+    private _enemy;
+    private _enemyBullets : Bullets;
     private _keyInput;
 
     constructor() {
@@ -29,6 +31,9 @@ export default class GameScene extends Phaser.Scene {
 
         //생선을 향해서 탄 발사!
         this._bullets = new Bullets(this);
+
+        //적들도 총은 쏴야지?
+        this._enemyBullets = new Bullets(this);
 
         // 이벤트 설정
         this.addEvents();

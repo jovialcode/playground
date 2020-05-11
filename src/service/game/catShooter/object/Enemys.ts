@@ -1,16 +1,16 @@
-import Bullet from "./Bullet";
+import Fish from "./Fish";
 
-export default class Bullets extends Phaser.Physics.Arcade.Group {
+export default class Enemys extends Phaser.Physics.Arcade.Group {
 
   constructor(scene) {
     super(scene.physics.world, scene);
 
     this.createMultiple({
-      classType: Bullet,
+      classType: Fish,
       frameQuantity: 30,
       active: false,
       visible: false,
-      key: 'bullet'
+      key: 'enemy'
     })
   }
 
