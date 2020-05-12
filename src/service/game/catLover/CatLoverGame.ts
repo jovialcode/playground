@@ -1,4 +1,4 @@
-import {IBaseGame} from "../../../type";
+import {IBaseGame} from "@type/Game";
 
 export default class CatLoverGame implements IBaseGame{
     private _title: string;

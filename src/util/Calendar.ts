@@ -1,4 +1,4 @@
-import {ICalendarDay} from "../type/Calendar";
+import {ICalendarDay} from "@type/Calendar";
 
 export const getPrevMonth = (d : Date) => {
     return new Date(d.getFullYear(), d.getMonth() - 1, d.getDate());

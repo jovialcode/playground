@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CONFIG = require('./config');
 
 module.exports = {
@@ -10,6 +11,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        plugins: [new TsconfigPathsPlugin({configFile: __dirname + '/../tsconfig.json'})]
     },
     module: {
         rules: [
