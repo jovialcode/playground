@@ -1,23 +1,27 @@
-export default class Enemy extends Phaser.Physics.Arcade.Sprite {
+export default class Enemy extends Phaser.GameObjects.Sprite {
   constructor(scene : Phaser.Scene, x :number, y :number) {
-    super(scene, x, y, 'fish');
+    super(scene, x, y, 'bee');
+
+    this.setOrigin(0, 0);
+    this.setDisplaySize(30,30);
+    this.setInteractive();
+    this.initPhysics();
+
+    this.scene.add.existing(this);
   }
 
-  fire(x:number, y:number) {
-    this.body.reset(x, y);
-
-    this.setActive(true);
-    this.setVisible(true);
-
-    this.setVelocityY(-900);
+  initPhysics(): void {
+    this.scene.physics.world.enable(this);
   }
 
-  preUpdate(time :number, delta:number) {
-    super.preUpdate(time, delta);
-
-    if (this.y <= 0) {
-      this.setActive(false);
-      this.setVisible(false);
+  update(): void {
+    if (this.active) {
+      this.anims.play("Dead");
+      this.destroy();
     }
+  }
+
+  gotHurt(): void {
+    this.setActive(false);
   }
 }

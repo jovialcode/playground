@@ -1,11 +1,12 @@
 import Leon from "../object/Leon";
 import Bullets from "../object/Bullets";
+import Enemy from "../object/Enemy";
 
 export default class GameScene extends Phaser.Scene {
     private _leon : Leon | null = null;
+    private enemies: Phaser.GameObjects.Group;
     private _bullets : Bullets;
-    private _enemy;
-    private _enemyBullets : Bullets;
+    private _enemy : Enemy | null = null;
     private _keyInput;
 
     constructor() {
@@ -15,11 +16,15 @@ export default class GameScene extends Phaser.Scene {
     }
 
     init(): void {
-        const centerX = this.cameras.main.width / 2;
-        const bottom = this.cameras.main.height - 90;
-
         //배경 화면 설정
         this.cameras.main.setBackgroundColor('black');
+
+        this.enemies = this.add.group({ runChildUpdate: true });
+    }
+
+    create() : void{
+        const centerX = this.cameras.main.width / 2;
+        const bottom = this.cameras.main.height - 90;
 
         //비행기(레옹) 객체 설정
         this._leon = new Leon({
@@ -32,8 +37,13 @@ export default class GameScene extends Phaser.Scene {
         //생선을 향해서 탄 발사!
         this._bullets = new Bullets(this);
 
-        //적들도 총은 쏴야지?
-        this._enemyBullets = new Bullets(this);
+        //적 생성
+        for (let y = 0; y < 5; y++) {
+            for (let x = 0; x < 10; x++) {
+                this.enemies.add(new Enemy(this, x*-35 + centerX+100, bottom-40*y-350));
+            }
+        }
+
 
         // 이벤트 설정
         this.addEvents();
@@ -68,5 +78,10 @@ export default class GameScene extends Phaser.Scene {
 
     shootBullet() :void {
         this._bullets.fireBullet(this._leon.x, this._leon.y - 20);
+    }
+
+    private bulletHitEnemy(bullet, enemy): void {
+        bullet.destroy();
+        enemy.gotHurt();
     }
 }

@@ -13,6 +13,16 @@
       },
       {
         "type": "image",
+        "key": "enemy",
+        "url": "/img/catShooter/enemy.png"
+      },
+      {
+        "type": "image",
+        "key": "bee",
+        "url": "/img/catShooter/bee.png"
+      },
+      {
+        "type": "image",
         "key": "preload",
         "url": "/img/catShooter/preload.png"
       }
