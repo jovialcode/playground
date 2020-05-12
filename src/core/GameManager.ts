@@ -5,6 +5,7 @@ import {GAME_LIST, GAME_TYPE, IBaseGame} from "../type";
 
 import FruitCrush from "../service/game/fruitCrush/FruitCrush";
 import CatShooter from "../service/game/catShooter/CatShooter";
+import MothersTheorem from "../service/game/theorem/MothersTheorem";
 
 class GameManager{
     private _gameModel : GameModel | null; //랭킹 정보 불러올 모델, 중간 세이브 되려나?
@@ -38,6 +39,11 @@ class GameManager{
             }
             case GAME_LIST.CAT_SHOOTER: {
                 this._game = new CatShooter();
+                this.run();
+                break;
+            }
+            case GAME_LIST.MOTHERS_THEOREM: {
+                this._game = new MothersTheorem();
                 this.run();
                 break;
             }
