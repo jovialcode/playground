@@ -1,4 +1,4 @@
-import {IBaseGame} from "../../../type";
+import {IBaseGame} from "@type/Game";
 import BootScene from "./scene/BootScene";
 import GameScene from "./scene/GameScene";
 

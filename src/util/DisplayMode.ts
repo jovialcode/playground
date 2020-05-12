@@ -1,4 +1,5 @@
-import {DISPLAY_MODE_TYPE, DISPLAY_MODE} from "../type";
+import {DISPLAY_MODE_TYPE, DISPLAY_MODE} from "@type/Layout";
+import {Color} from "@lib/color";
 
 export const modeChange = (type : DISPLAY_MODE_TYPE) : void => {
 	//root
@@ -14,25 +15,22 @@ export const modeChange = (type : DISPLAY_MODE_TYPE) : void => {
 	//TODO 색상 config 같은거 정하면 어떻까?
 	switch (type) {
 		case DISPLAY_MODE.BLACK : {
-			app.style.background = '#000000';
-			app.style.color = '#ffffff';
+			app.style.background = Color.BLACK;
+			app.style.color = Color.WHITE;
 
 			changeArray.forEach(function (item) {
-				item.style.color = '#ffffff'
+				item.style.color = Color.WHITE
 			});
 
 			break;
 		}
 		default:{
 			app.style.background = 'transparent';
-			app.style.color = '#000000';
+			app.style.color = Color.BLACK;
 
 			changeArray.forEach(function (item) {
-				item.style.color = '#000000'
+				item.style.color = Color.BLACK
 			});
 		}
 	}
-
-
-
 };

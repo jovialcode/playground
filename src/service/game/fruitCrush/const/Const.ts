@@ -1,4 +1,4 @@
-export let Const = {
+export const Const = {
     score: 0,
     highscore: 0,
     gridWidth: 8,
