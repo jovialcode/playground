@@ -4,9 +4,8 @@ import Enemy from "../object/Enemy";
 
 export default class GameScene extends Phaser.Scene {
     private _leon : Leon | null = null;
-    private enemies: Phaser.GameObjects.Group;
+    private _enemies: Phaser.GameObjects.Group;
     private _bullets : Bullets;
-    private _enemy : Enemy | null = null;
     private _keyInput;
 
     constructor() {
@@ -19,7 +18,7 @@ export default class GameScene extends Phaser.Scene {
         //배경 화면 설정
         this.cameras.main.setBackgroundColor('black');
 
-        this.enemies = this.add.group({ runChildUpdate: true });
+        this._enemies = this.add.group({ runChildUpdate: true });
     }
 
     create() : void{
@@ -40,10 +39,9 @@ export default class GameScene extends Phaser.Scene {
         //적 생성
         for (let y = 0; y < 5; y++) {
             for (let x = 0; x < 10; x++) {
-                this.enemies.add(new Enemy(this, x*-35 + centerX+100, bottom-40*y-350));
+                this._enemies.add(new Enemy(this, x*-35 + centerX+100, bottom-40*y-350));
             }
         }
-
 
         // 이벤트 설정
         this.addEvents();
