@@ -1,5 +1,5 @@
-import {DISPLAY_MODE_TYPE, DISPLAY_MODE} from "@type/Layout";
-import {Color} from "@lib/color";
+import {DISPLAY_MODE_TYPE, DISPLAY_MODE} from "@type";
+import {Color} from "@lib";
 
 export const modeChange = (type : DISPLAY_MODE_TYPE) : void => {
 	//root

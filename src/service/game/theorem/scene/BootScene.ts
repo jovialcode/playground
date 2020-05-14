@@ -1,4 +1,4 @@
-import {Color} from "@lib/color";
+import {Color} from "@lib";
 
 export default class BootScene extends Phaser.Scene {
     constructor() {

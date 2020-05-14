@@ -1,9 +1,10 @@
 import Leon from "../object/Leon";
 import Bullets from "../object/Bullets";
 import Enemy from "../object/Enemy";
+import {ENEMY_LIST} from "../object/type";
 
 export default class GameScene extends Phaser.Scene {
-    private _leon : Leon | null = null;
+    private _leon : Leon;
     private _enemies: Phaser.GameObjects.Group;
     private _bullets : Bullets;
     private _keyInput;
@@ -15,9 +16,6 @@ export default class GameScene extends Phaser.Scene {
     }
 
     init(): void {
-        //배경 화면 설정
-        this.cameras.main.setBackgroundColor('black');
-
         this._enemies = this.add.group({ runChildUpdate: true });
     }
 
@@ -39,7 +37,7 @@ export default class GameScene extends Phaser.Scene {
         //적 생성
         for (let y = 0; y < 5; y++) {
             for (let x = 0; x < 10; x++) {
-                this._enemies.add(new Enemy(this, x*-35 + centerX+100, bottom-40*y-350));
+                this._enemies.add(new Enemy(this, x*-35 + centerX+100, bottom-40*y-350, y%2 === 0 ? ENEMY_LIST.CAN : ENEMY_LIST.FISH));
             }
         }
 
@@ -78,8 +76,8 @@ export default class GameScene extends Phaser.Scene {
         this._bullets.fireBullet(this._leon.x, this._leon.y - 20);
     }
 
-    private bulletHitEnemy(bullet, enemy): void {
-        bullet.destroy();
-        enemy.gotHurt();
-    }
+    // private bulletHitEnemy(bullet, enemy): void {
+    //     bullet.destroy();
+    //     enemy.gotHurt();
+    // }
 }
