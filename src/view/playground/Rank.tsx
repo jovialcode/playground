@@ -5,8 +5,8 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import {RANK_TYPE} from "@type/Game";
-import {renderLog} from "@util/Logger";
+import {RANK_TYPE} from "@type";
+import {renderLog} from "@util";
 
 const Rank  = observer(()=> {
     const {playGroundVM} = React.useContext(MobXProviderContext);

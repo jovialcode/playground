@@ -5,12 +5,12 @@ import classNames from 'classnames/bind';
 import css from './PlayGround.scss';
 const cx = classNames.bind(css);
 
-import {GAME_TYPE} from "../../type";
+import {GAME_TYPE} from "@type";
+import {modeChange, renderLog} from "@util";
 
 import GameList from "./GameList";
 import Game from "./Game";
-import Rank from "./Rank";
-import {modeChange, renderLog} from "../../util";
+import Score from "./Score";
 
 const PlayGround  = observer(() => {
     renderLog('PlayGround');
@@ -27,7 +27,7 @@ const PlayGround  = observer(() => {
             <div className={cx('gameWrap')}>
                 <GameList/>
                 <Game/>
-                <Rank/>
+                <Score/>
             </div>
         </div>
     )

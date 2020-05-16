@@ -4,17 +4,17 @@
       {
         "type": "image",
         "key": "leon",
-        "url": "/img/catShooter/leon.png"
+        "url": "/data/game/catShooter/img/leon.png"
       },
       {
         "type": "image",
         "key": "bullet",
-        "url": "/img/catShooter/bullet.png"
+        "url": "/data/game/catShooter/img/bullet.png"
       },
       {
         "type": "image",
         "key": "can",
-        "url": "/img/catShooter/can.png",
+        "url": "/data/game/catShooter/img/can.png",
         "frameConfig": {
           "frameWidth": 12,
           "frameHeight": 8
@@ -23,7 +23,7 @@
       {
         "type": "image",
         "key": "fish",
-        "url": "/img/catShooter/fish.png",
+        "url": "/data/game/catShooter/img/fish.png",
         "frameConfig": {
           "frameWidth": 12,
           "frameHeight": 8
@@ -31,8 +31,23 @@
       },
       {
         "type": "image",
-        "key": "preload",
-        "url": "/img/catShooter/preload.jpg"
+        "key": "explode",
+        "url": "/data/game/catShooter/img/explode.png",
+        "frameConfig": {
+          "frameWidth": 12,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "/data/game/catShooter/img/spaceBackground.jpg"
+      },
+      {
+        "type": "audio",
+        "extension": "mp3",
+        "key": "theme",
+        "url": "/data/game/catShooter/audio/spaceBackgroundAudio.mp3"
       }
     ]
   }

@@ -1,6 +1,7 @@
 @import 'src/common/css/variable';
 
 .gameWrap{
+  position:relative;
   display: flex;
   justify-content: center;
 
@@ -19,12 +20,20 @@
     }
   }
 
-  .rank{
+  .score{
     width: 220px;
     border-left: 6px solid darkslateblue;
 
-    > li {
-      padding: 8px;
+    .currentScore{
+      border-bottom: 6px solid darkslateblue;
+      padding : 20px;
+      text-align: center;
+    }
+
+    .rank{
+      > li {
+        padding: 8px;
+      }
     }
   }
   .game{

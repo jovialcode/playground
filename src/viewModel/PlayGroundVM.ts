@@ -1,7 +1,9 @@
-import {action, observable} from "mobx";
+import {action, computed, observable} from "mobx";
 
-import {GAME_LIST, GAME_TYPE, RANK_TYPE} from "../type";
+import {GAME_LIST, GAME_TYPE, RANK_TYPE} from "@type";
 import GameManager from "../core/GameManager";
+import ScoreManager from "../core/ScoreManager";
+import BGMManager from "../core/BGMManager";
 
 export default class PlayGroundVM {
 	@observable private _currentGame : GAME_TYPE;
@@ -60,5 +62,12 @@ export default class PlayGroundVM {
 	changeGame(game : GAME_TYPE){
 		this._currentGame = game;
 		GameManager.init(game);
+		ScoreManager.init();
+		BGMManager.init(game);
+	}
+
+	@computed
+	get gameScore():number {
+		return ScoreManager.score;
 	}
 }

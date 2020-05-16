@@ -1,4 +1,4 @@
-import {IBaseGame} from "@type";
+import {BGM_LIST, IBaseGame} from "@type";
 import BootScene from "./scene/BootScene";
 import GameScene from "./scene/GameScene";
 
@@ -8,6 +8,7 @@ export default class CatShooter implements IBaseGame{
     private _width: number;
     private _physics: object;
     private _backgroundColor: string;
+    private _bgm : BGM_LIST;
     private _input;
 
     private _scene: ReadonlyArray<Phaser.Scene>;
@@ -17,7 +18,9 @@ export default class CatShooter implements IBaseGame{
         this._backgroundColor = '#000000';
 
         this._height = 700;
-        this._width = 520;
+        this._width = 792;
+
+        this._bgm = BGM_LIST.CAT_SHOOTER;
 
         this._physics = {
             default: 'arcade',
@@ -25,7 +28,7 @@ export default class CatShooter implements IBaseGame{
                 debug: true,
                 gravity: { y: 0 },
                 setBounds: {
-                    width: 520,
+                    width: 300,
                     height: 700
                 }
             }
@@ -33,7 +36,7 @@ export default class CatShooter implements IBaseGame{
 
         this._input = {
             keyboard: true
-        }
+        };
 
         this._scene = [new BootScene(), new GameScene()]
     }
@@ -60,4 +63,8 @@ export default class CatShooter implements IBaseGame{
     getWidth(){
         return this._width;
     };
+
+    get bgm(): BGM_LIST {
+        return this._bgm;
+    }
 };

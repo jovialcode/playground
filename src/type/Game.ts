@@ -27,3 +27,11 @@ export interface IBaseGame{
 	getWidth: () => {};
 	getHeight: () => {};
 };
+
+export enum BGM_LIST{
+	NONE = 'NONE',
+	FRUIT_CRUSH = 'FRUIT_CRUSH',
+	CAT_LOVER = 'CAT_LOVER',
+	CAT_SHOOTER = 'CAT_SHOOTER',
+	MOTHERS_THEOREM = 'MOTHERS_THEOREM'
+}

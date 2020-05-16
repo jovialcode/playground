@@ -3,10 +3,13 @@ import {
   ENEMY_TYPE,
   IMAGE_CONFIG
 } from "./type";
+import ScoreManager from "../../../../core/ScoreManager";
+import Explode from "./Explode";
 
 export default class Enemy extends Phaser.GameObjects.Sprite {
   private readonly _type : ENEMY_TYPE;
   private _bullets: Phaser.GameObjects.Group;
+  private _explosions : Phaser.GameObjects.Group;
   private _moveTween: Phaser.Tweens.Tween;
   private _image : IMAGE_CONFIG;
   private _dyingTime : number;
@@ -31,8 +34,14 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
   private initVariables() : void{
     this._bullets = this.scene.add.group({
-      maxSize: 10,
+      maxSize: 30,
       runChildUpdate: true
+    });
+
+    this._explosions = this.scene.add.group({
+      defaultKey:'explode',
+      maxSize: 30,
+      runChildUpdate: true,
     });
 
     switch (this._type) {
@@ -85,6 +94,8 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   public gotHurt(): void {
+    //점수 올리기
+    ScoreManager.score += this._bonus;
     this.setActive(false);
     this.destroy();
   }

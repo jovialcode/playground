@@ -8,7 +8,7 @@ import css from './view/layout/Layout.scss';
 const cx = classNames.bind(css);
 
 /*UTIL*/
-import {renderLog} from "./util";
+import {renderLog} from "@util";
 
 /*View*/
 import Header from "./view/layout/Header";
