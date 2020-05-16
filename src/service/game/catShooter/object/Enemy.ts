@@ -13,7 +13,6 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   private _lives : number;
   private _bonus : number;
 
-
   constructor(scene : Phaser.Scene, x :number, y :number, type : ENEMY_TYPE) {
     super(scene, x, y, type);
 
@@ -79,5 +78,14 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
       yoyo: true,
       repeat: -1
     });
+  }
+
+  private initDestroyEffect() : void {
+
+  }
+
+  public gotHurt(): void {
+    this.setActive(false);
+    this.destroy();
   }
 }

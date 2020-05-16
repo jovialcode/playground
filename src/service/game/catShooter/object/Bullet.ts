@@ -1,23 +1,36 @@
-export default class Bullet extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene : Phaser.Scene, x :number, y :number) {
-    super(scene, x, y, 'bullet');
+export default class Bullet extends Phaser.GameObjects.Image {
+  private _bulletSpeed: number;
+  private _remainTime : number;
+
+  constructor(params) {
+    super(params.scene, params.x, params.y, params.key);
+
+    this.initVariables(params);
+    this.initImage();
+    this.initPhysics();
+
+    this.scene.add.existing(this);
   }
 
-  fire(x:number, y:number) {
-    this.body.reset(x, y);
-
-    this.setActive(true);
-    this.setVisible(true);
-
-    this.setVelocityY(-900);
+  private initVariables(params): void {
+    this._remainTime = this.y;
+    this._bulletSpeed = params.bulletProperties.speed;
   }
 
-  preUpdate(time :number, delta:number) {
-    super.preUpdate(time, delta);
+  private initImage(): void {
+    this.setOrigin(0.5, 0.5);
+  }
 
-    if (this.y <= 0) {
-      this.setActive(false);
-      this.setVisible(false);
+  private initPhysics(): void {
+    this.scene.physics.world.enable(this);
+    this.setSize(1, 8);
+  }
+
+  update(): void {
+    if (this.y < 0 || this.y > this.scene.sys.canvas.height) {
+      this.destroy();
+    }else{
+      this.setY(this.y - this._bulletSpeed);
     }
   }
 }
