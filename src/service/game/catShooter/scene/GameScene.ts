@@ -24,10 +24,6 @@ export default class GameScene extends Phaser.Scene {
         this._bottom = this.cameras.main.height - 90;
 
         this._background = this.add.tileSprite(this._centerX, this._bottom - 260,792,700,'background');
-        this.sound.add('theme');
-        this.sound.play('theme');
-
-
     }
 
     create() : void{

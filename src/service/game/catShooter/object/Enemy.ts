@@ -3,8 +3,7 @@ import {
   ENEMY_TYPE,
   IMAGE_CONFIG
 } from "./type";
-import ScoreManager from "../../../../core/ScoreManager";
-import Explode from "./Explode";
+import ScoreManager from "@core";
 
 export default class Enemy extends Phaser.GameObjects.Sprite {
   private readonly _type : ENEMY_TYPE;

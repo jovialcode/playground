@@ -35,3 +35,9 @@ export enum BGM_LIST{
 	CAT_SHOOTER = 'CAT_SHOOTER',
 	MOTHERS_THEOREM = 'MOTHERS_THEOREM'
 }
+
+export type BGM_TYPE = {
+	title: string;
+	gameName: GAME_LIST_TYPE;
+	src : string
+}
