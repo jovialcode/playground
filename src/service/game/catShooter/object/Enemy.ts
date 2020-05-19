@@ -12,6 +12,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   private _moveTween: Phaser.Tweens.Tween;
   private _image : IMAGE_CONFIG;
   private _dyingTime : number;
+  private _speed : number;
   private _lives : number;
   private _bonus : number;
 
@@ -44,8 +45,9 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     });
 
     switch (this._type) {
-      case ENEMY_LIST.CAN:
+      case ENEMY_LIST.FOOD:
         this._dyingTime = 100;
+        this._speed = 10;
         this._lives = 1;
         this._bonus = 20;
         this._image = {
@@ -55,10 +57,33 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
         break;
 
-      case ENEMY_LIST.FISH:
+      case ENEMY_LIST.CUTEFOOD:
         this._dyingTime = 120;
+        this._speed = 20;
         this._lives = 2;
         this._bonus = 40;
+        this._image = {
+          width : 32,
+          height : 32
+        };
+        break;
+
+      case ENEMY_LIST.CAN:
+        this._dyingTime = 140;
+        this._speed = 30;
+        this._lives = 3;
+        this._bonus = 80;
+        this._image = {
+          width : 32,
+          height : 32
+        };
+        break;
+
+      case ENEMY_LIST.FISH:
+        this._dyingTime = 160;
+        this._speed = 40;
+        this._lives = 4;
+        this._bonus = 100;
         this._image = {
           width : 32,
           height : 32
@@ -80,7 +105,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   private initTweens(): void {
     this._moveTween = this.scene.tweens.add({
       targets: this,
-      x: this.x + 50,
+      x: this.x + 50 + this._speed,
       ease: "Power0",
       duration: 6000,
       yoyo: true,
@@ -88,14 +113,13 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     });
   }
 
-  private initDestroyEffect() : void {
-
-  }
-
   public gotHurt(): void {
     //점수 올리기
-    ScoreManager.score += this._bonus;
-    this.setActive(false);
-    this.destroy();
+    if(this._lives > 0) this._lives -= 1;
+    else{
+      ScoreManager.score += this._bonus;
+      this.setActive(false);
+      this.destroy();
+    }
   }
 }

@@ -9,7 +9,6 @@ export default class GameScene extends Phaser.Scene {
     private _level : number;
     private _centerX : number;
     private _bottom: number;
-    private _music;
 
     constructor() {
         super({
@@ -19,7 +18,7 @@ export default class GameScene extends Phaser.Scene {
 
     init(): void {
         this._enemies = this.add.group({ runChildUpdate: true });
-        this._level = 1;
+        this._level = 0;
         this._centerX = this.cameras.main.width / 2;
         this._bottom = this.cameras.main.height - 90;
 
@@ -41,9 +40,17 @@ export default class GameScene extends Phaser.Scene {
 
     createEnemy(){
         this._level += 1;
+        let enemyType;
+        switch (this._level) {
+            case 4 : enemyType = ENEMY_LIST.FISH; break;
+            case 3 : enemyType = ENEMY_LIST.CAN; break;
+            case 2 : enemyType = ENEMY_LIST.CUTEFOOD; break;
+            case 1 :
+            default : enemyType = ENEMY_LIST.FOOD;
+        }
         for (let y = 0; y < 5; y++) {
             for (let x = 0; x < 10; x++) {
-                this._enemies.add(new Enemy(this, x*-35 + this._centerX+100, this._bottom-40*y-350, y%2 === 0 ? ENEMY_LIST.CAN : ENEMY_LIST.FISH));
+                this._enemies.add(new Enemy(this, x*-35 + this._centerX + 100, this._bottom-40*y-350, enemyType));
             }
         }
     }
@@ -54,6 +61,10 @@ export default class GameScene extends Phaser.Scene {
         if (this._leon.active) {
             this._leon.update();
             this.checkCollisions();
+        }
+
+        if(this._enemies.getChildren().length == 0){
+            this.createEnemy();
         }
     }
 

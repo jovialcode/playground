@@ -1,4 +1,4 @@
-export let Const = {
-    leonWidth:10,
-    leonHeight:10
+export const Const = {
+    leonWidth : 10,
+    leonHeight : 10
 };

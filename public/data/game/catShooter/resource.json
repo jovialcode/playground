@@ -31,6 +31,24 @@
       },
       {
         "type": "image",
+        "key": "food",
+        "url": "/data/game/catShooter/img/food.png",
+        "frameConfig": {
+          "frameWidth": 12,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "image",
+        "key": "cuteFood",
+        "url": "/data/game/catShooter/img/cuteFood.png",
+        "frameConfig": {
+          "frameWidth": 12,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "image",
         "key": "explode",
         "url": "/data/game/catShooter/img/explode.png",
         "frameConfig": {
