@@ -41,3 +41,9 @@ export type BGM_TYPE = {
 	gameName: GAME_LIST_TYPE;
 	src : string
 }
+
+export enum	BGM_STATE_TYPE{
+	NONE = 'NONE',
+	MUTE = 'MUTE',
+	PLAY = 'PLAY'
+}

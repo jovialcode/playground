@@ -45,4 +45,23 @@
     display: flex;
     justify-content: center;
   }
+
+  .bgm {
+    position: absolute;
+    bottom : 10px;
+    left : 10px;
+    width:30px;
+    height:30px;
+    border : 1px solid #ffffff;
+    .bgmMute{
+      width:100%;
+      height:100%;
+      background-image : url("/public/img/play.png")
+    }
+    .bgmPlay{
+      width:100%;
+      height:100%;
+      background-image : url("/public/img/mute.png")
+    }
+  }
 }

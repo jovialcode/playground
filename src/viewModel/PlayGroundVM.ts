@@ -1,6 +1,6 @@
 import {action, computed, observable} from "mobx";
 
-import {GAME_LIST, GAME_TYPE, RANK_TYPE} from "@type";
+import {BGM_STATE_TYPE, GAME_LIST, GAME_TYPE, RANK_TYPE} from "@type";
 import GameManager from "../core/GameManager";
 import ScoreManager from "../core/ScoreManager";
 import BGMManager from "../core/BGMManager";
@@ -57,6 +57,15 @@ export default class PlayGroundVM {
 				"score": 12145
 			}
 		];
+	}
+
+	get bgmState(): BGM_STATE_TYPE{
+		return BGMManager.bgmState;
+	}
+
+	changeBGMState(v : BGM_STATE_TYPE) : void{
+		if(v === BGM_STATE_TYPE.MUTE) BGMManager.mute();
+		else if(v === BGM_STATE_TYPE.PLAY)BGMManager.resume();
 	}
 
 	changeGame(game : GAME_TYPE){

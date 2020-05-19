@@ -11,6 +11,7 @@ import {modeChange, renderLog} from "@util";
 import GameList from "./GameList";
 import Game from "./Game";
 import Score from "./Score";
+import BGM from "./BGM";
 
 const PlayGround  = observer(() => {
     renderLog('PlayGround');
@@ -28,6 +29,8 @@ const PlayGround  = observer(() => {
                 <GameList/>
                 <Game/>
                 <Score/>
+
+                <BGM/>
             </div>
         </div>
     )
