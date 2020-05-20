@@ -60,6 +60,12 @@
         "type": "image",
         "key": "background",
         "url": "/data/game/catShooter/img/spaceBackground.jpg"
+      },
+      {
+        "type": "audio",
+        "extension": "mp3",
+        "key": "explosion",
+        "url": "/data/game/catShooter/audio/explosion.mp3"
       }
     ]
   }

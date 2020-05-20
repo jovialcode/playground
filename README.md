@@ -5,9 +5,11 @@
 4. Rank Repository 작성해야함.
 5. 날아라 레옹이 비행기
     - 적들 부서질 때 효과
-    - BGM 깔까? (오락실 BGM)
+    - BGM 깔까? (오락실 BGM) [DONE]
  6. Score Manager 만들어야함
     - 게임, 화면, 모델을 오가야하니깐 Manager 개념으로 만들것
+7. BGM Manager 
+    - 볼륨 조절하는거 만들것 !
 
 #[주의사항]
 1. 방어코드 작성하는 것을 유념하기

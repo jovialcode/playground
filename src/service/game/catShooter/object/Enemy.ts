@@ -8,7 +8,6 @@ import ScoreManager from "@core";
 export default class Enemy extends Phaser.GameObjects.Sprite {
   private readonly _type : ENEMY_TYPE;
   private _bullets: Phaser.GameObjects.Group;
-  private _explosions : Phaser.GameObjects.Group;
   private _moveTween: Phaser.Tweens.Tween;
   private _image : IMAGE_CONFIG;
   private _dyingTime : number;
@@ -36,12 +35,6 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     this._bullets = this.scene.add.group({
       maxSize: 30,
       runChildUpdate: true
-    });
-
-    this._explosions = this.scene.add.group({
-      defaultKey:'explode',
-      maxSize: 30,
-      runChildUpdate: true,
     });
 
     switch (this._type) {
@@ -118,6 +111,9 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     if(this._lives > 0) this._lives -= 1;
     else{
       ScoreManager.score += this._bonus;
+      this.scene.sound.play('explosion', {
+        volume: 0.3
+      });
       this.setActive(false);
       this.destroy();
     }

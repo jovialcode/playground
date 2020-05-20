@@ -51,6 +51,7 @@ class BGMManager{
         this._bgm.loop = true;
         this._bgm.id = 'bgm';
         this._bgm.autoplay = true;
+        this._bgm.volume = 0.3; //TODO 이거 줄이는 method랑 view 만들기
         this._bgmState = BGM_STATE_TYPE.PLAY;
         $body?.appendChild(this._bgm);
     }
