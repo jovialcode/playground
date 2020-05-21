@@ -29,7 +29,6 @@ const PlayGround  = observer(() => {
                 <GameList/>
                 <Game/>
                 <Score/>
-
                 <BGM/>
             </div>
         </div>

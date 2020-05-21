@@ -1,8 +1,8 @@
 @import 'src/common/css/variable';
 
 @mixin bgmStyle{
-  width:100%;
-  height:100%;
+  width:30px;
+  height:30px;
   background-size : cover;
   border-radius:50%;
 }
@@ -57,8 +57,13 @@
     position: absolute;
     bottom : 10px;
     left : 10px;
-    width:30px;
+    width: 150px;
     height:30px;
+
+    display: flex;
+
+    text-align: center;
+    align-items: center;
     .bgmMute{
       @include bgmStyle;
       background : url("/img/play.png") #ffffff center no-repeat;
@@ -66,6 +71,15 @@
     .bgmPlay{
       @include bgmStyle;
       background : url("/img/mute.png") #ffffff center no-repeat;
+    }
+    .volumeWrap{
+      display: inline-block;
+      width:100px;
+      height: 15px;
+      .volume{
+        color:#ffffff;
+        margin: 0 10px;
+      }
     }
   }
 }
