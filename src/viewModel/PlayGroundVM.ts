@@ -63,6 +63,10 @@ export default class PlayGroundVM {
 		return BGMManager.bgmState;
 	}
 
+	get bgmVolume() : number{
+		return BGMManager.bgmVolume;
+	}
+
 	changeBGMState(v : BGM_STATE_TYPE) : void{
 		if(v === BGM_STATE_TYPE.MUTE) BGMManager.mute();
 		else if(v === BGM_STATE_TYPE.PLAY)BGMManager.resume();
