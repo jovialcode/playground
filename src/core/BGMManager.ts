@@ -17,7 +17,7 @@ import {DEV_GAME_CONFIG_PATH} from "../config";
 class BGMManager{
     private _bgm : HTMLAudioElement | null;
     private _bgmList : BGM_TYPE[];
-    private _bgmVolume : number = 0;
+    @observable private _bgmVolume : number = 0;
     @observable private _bgmState : BGM_STATE_TYPE;
 
     constructor() {
@@ -85,6 +85,12 @@ class BGMManager{
 
     get bgmVolume() : number{
         return this._bgmVolume;
+    }
+
+    set bgmVolume(value: number) {
+        if(this._bgmState !== BGM_STATE_TYPE.PLAY || !this._bgm) return ;
+        this._bgmVolume = value;
+        this._bgm.volume = value;
     }
 }
 export default new BGMManager();

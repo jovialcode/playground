@@ -1,4 +1,4 @@
-import {action, computed, observable} from "mobx";
+import {computed, observable} from "mobx";
 
 import {BGM_STATE_TYPE, GAME_LIST, GAME_TYPE, RANK_TYPE} from "@type";
 import GameManager from "../core/GameManager";
@@ -70,6 +70,12 @@ export default class PlayGroundVM {
 	changeBGMState(v : BGM_STATE_TYPE) : void{
 		if(v === BGM_STATE_TYPE.MUTE) BGMManager.mute();
 		else if(v === BGM_STATE_TYPE.PLAY)BGMManager.resume();
+	}
+
+	changeBGMVolume(volume : number){
+		if(BGMManager.bgmState !== BGM_STATE_TYPE.PLAY) return alert('실행중인 BGM이 없습니다.');
+		if(volume < 0 || volume > 1) return alert('소리는 0 보다 작거나 9보다 클 수 없습니다.');
+		BGMManager.bgmVolume = volume;
 	}
 
 	changeGame(game : GAME_TYPE){

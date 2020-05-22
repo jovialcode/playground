@@ -19,6 +19,14 @@ const BGM  = observer(()=> {
         playGroundVM.changeBGMState(v);
     }
 
+    const volumeIncreaseClickHandler = () => {
+        playGroundVM.changeBGMVolume(bgmVolume + 0.1);
+    }
+
+    const volumeDecreaseClickHandler = () => {
+        playGroundVM.changeBGMVolume(bgmVolume - 0.1);
+    }
+
     return (
         <div className={cx('bgm')}>
         {
@@ -27,9 +35,9 @@ const BGM  = observer(()=> {
                 : <button className={cx('bgmPlay')} onClick={()=>{clickHandler(BGM_STATE_TYPE.PLAY)}}></button>
         }
             <div className={cx('volumeWrap')}>
-                <button className={cx('volumeDown')}>-</button>
-                <span className={cx('volume')}>{bgmVolume*10} </span>
-                <button className={cx('volumeUp')}>+</button>
+                <button className={cx('volumeDown')} onClick={()=>{volumeDecreaseClickHandler()}}>-</button>
+                <span className={cx('volume')}>{Math.floor(bgmVolume*10)} </span>
+                <button className={cx('volumeUp')} onClick={()=>{volumeIncreaseClickHandler()}}>+</button>
             </div>
         </div>
     )
