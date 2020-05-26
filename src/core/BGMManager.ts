@@ -32,8 +32,8 @@ class BGMManager{
         ]
     }
 
-    destroy(){
-
+    remove(){
+        if(this._bgm) this._bgm.remove();
     }
 
     init(game : GAME_TYPE){

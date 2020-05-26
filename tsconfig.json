@@ -45,11 +45,8 @@
        "@type": [
          "./type"
        ],
-       "@core": [
-         "./core/ScoreManager",
-         "./core/BGMManager",
-         "./core/GameManager",
-         "./core/ProjectManager"
+       "@core/*": [
+         "./core/*"
        ],
        "@lib": [
          "./lib/color"

@@ -1,8 +1,6 @@
 import {observable} from "mobx";
 
-import MainModel from "../model/MainModel";
-import MainVO from "../valueObject/MainVO";
-import {NAVI_TYPE} from "../type";
+import {NAVI_TYPE} from "@type";
 
 export default class RootVM {
 	@observable private _currentOn : NAVI_TYPE;

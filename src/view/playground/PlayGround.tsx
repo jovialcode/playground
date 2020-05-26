@@ -12,6 +12,7 @@ import GameList from "./GameList";
 import Game from "./Game";
 import Score from "./Score";
 import BGM from "./BGM";
+import BGMManager from "@core/BGMManager";
 
 const PlayGround  = observer(() => {
     renderLog('PlayGround');
@@ -21,6 +22,7 @@ const PlayGround  = observer(() => {
     useEffect(()=>{
         //모드 색상 변경
         modeChange('BLACK');
+        BGMManager.remove();
     },[]);
 
     return (

@@ -1,9 +1,9 @@
 import {computed, observable} from "mobx";
 
 import {BGM_STATE_TYPE, GAME_LIST, GAME_TYPE, RANK_TYPE} from "@type";
-import GameManager from "../core/GameManager";
-import ScoreManager from "../core/ScoreManager";
-import BGMManager from "../core/BGMManager";
+import GameManager from "@core/GameManager";
+import ScoreManager from "@core/ScoreManager";
+import BGMManager from "@core/BGMManager";
 
 export default class PlayGroundVM {
 	@observable private _currentGame : GAME_TYPE;

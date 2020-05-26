@@ -6,6 +6,7 @@ import css from './Life.scss';
 import {modeChange, renderLog} from "../../util";
 import Calendar from "../component/calendar/Calendar";
 import CalendarVM from "../component/calendar/CalendarVM";
+import BGMManager from "@core/BGMManager";
 
 const cx = classNames.bind(css);
 
@@ -15,6 +16,7 @@ const Life  = observer(() => {
     useEffect(()=>{
         //모드 색상 변경
         modeChange('WHITE');
+        BGMManager.remove();
     },[]);
 
     return (
