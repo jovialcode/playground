@@ -22,7 +22,7 @@ const PlayGround  = observer(() => {
     useEffect(()=>{
         //모드 색상 변경
         modeChange('BLACK');
-        BGMManager.remove();
+        BGMManager.remove(); //이름 잘못 올라감. ㅜ
     },[]);
 
     return (
