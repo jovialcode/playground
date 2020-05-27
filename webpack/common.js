@@ -10,8 +10,11 @@ module.exports = {
         app: `${CONFIG.JS_FILE_PATH}/App.tsx`
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
-        plugins: [new TsconfigPathsPlugin({configFile: __dirname + '/../tsconfig.json'})]
+        extensions: ['.ts', '.tsx', '.js', '.jsx', 'scss'],
+        plugins: [new TsconfigPathsPlugin({configFile: __dirname + '/../tsconfig.json'})],
+        alias: {
+            $commonCss: path.resolve(__dirname, '../src/common/css/')
+        }
     },
     module: {
         rules: [
