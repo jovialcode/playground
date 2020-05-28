@@ -10,7 +10,6 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   private _bullets: Phaser.GameObjects.Group;
   private _moveTween: Phaser.Tweens.Tween;
   private _image : IMAGE_CONFIG;
-  private _emitter : Phaser.Types.GameObjects.Particles;
   private _dyingTime : number;
   private _speed : number;
   private _lives : number;
@@ -48,7 +47,14 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
           width : 32,
           height : 32
         };
-
+        this._moveTween = this.scene.tweens.add({
+          targets: this,
+          x: this.x + 50 + this._speed,
+          ease: "Power0",
+          duration: 6000,
+          yoyo: true,
+          repeat: -1
+        });
         break;
 
       case ENEMY_LIST.CUTEFOOD:
@@ -60,6 +66,14 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
           width : 32,
           height : 32
         };
+        this._moveTween = this.scene.tweens.add({
+          targets: this,
+          x: this.x + 50 + this._speed,
+          ease: "Sine.easeInOut",
+          duration: 6000,
+          yoyo: true,
+          repeat: -1
+        });
         break;
 
       case ENEMY_LIST.CAN:
@@ -71,17 +85,35 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
           width : 32,
           height : 32
         };
+        this._moveTween = this.scene.tweens.add({
+          targets: this,
+          props:{
+            x: {value: this.x + 50 + this._speed, duration: 2000, flipX: true},
+            y: {value: this.y + 50 + this._speed, duration: 6000},
+          },
+          ease: "Power0",
+          yoyo: true,
+          repeat: -1
+        });
         break;
 
       case ENEMY_LIST.FISH:
         this._dyingTime = 160;
-        this._speed = 40;
+        this._speed = 45;
         this._lives = 4;
         this._bonus = 100;
         this._image = {
           width : 32,
           height : 32
         };
+        this._moveTween = this.scene.tweens.add({
+          targets: this,
+          x: {value: this.x + 50 + this._speed, duration: 2000, flipX: true},
+          y: {value: this.y + 50 + this._speed, duration: 6000},
+          ease: "Power0",
+          yoyo: true,
+          repeat: -1
+        });
         break;
     }
   }
@@ -97,14 +129,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   private initTweens(): void {
-    this._moveTween = this.scene.tweens.add({
-      targets: this,
-      x: this.x + 50 + this._speed,
-      ease: "Power0",
-      duration: 6000,
-      yoyo: true,
-      repeat: -1
-    });
+
   }
 
   public gotHurt(): void {
