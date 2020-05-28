@@ -20,12 +20,10 @@ const Life  = observer(() => {
     },[]);
 
     return (
-        <div className={cx('wrap')}>
-            <div id={cx('life')}>
-                <Provider calendarVM={new CalendarVM(new Date())}>
-                    <Calendar/>
-                </Provider>
-            </div>
+        <div id={cx('life')}>
+            <Provider calendarVM={new CalendarVM(new Date())}>
+                <Calendar/>
+            </Provider>
         </div>
     )
 });

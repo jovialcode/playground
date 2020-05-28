@@ -18,10 +18,8 @@ const Flick  = observer(() => {
     },[]);
 
     return (
-        <div className={cx('wrap')}>
-            <div id={cx('flick')}>
-                Flick Empty
-            </div>
+        <div id={cx('flick')}>
+            Flick Empty
         </div>
     )
 });

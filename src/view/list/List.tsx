@@ -15,10 +15,8 @@ const Main  = observer((prop: IMain) => {
     const mainArticle = mainVM.mainArticle;
 
     return (
-        <div className={cx('wrap')}>
-            <div id={cx('main')}>
-                {mainArticle && mainArticle.title}
-            </div>
+        <div id={cx('main')}>
+            {mainArticle && mainArticle.title}
         </div>
     )
 });

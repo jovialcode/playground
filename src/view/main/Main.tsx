@@ -3,7 +3,7 @@ import {MobXProviderContext, observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './Main.scss';
-import {modeChange, renderLog} from "../../util";
+import {modeChange, renderLog} from "@util";
 
 const cx = classNames.bind(css);
 
@@ -18,11 +18,9 @@ const Main  = observer(() => {
     },[]);
 
     return (
-        <div className={cx('wrap')}>
-            <div id={cx('main')}>
-                {mainArticle && mainArticle.title}
-                Main Empty
-            </div>
+        <div id={cx('main')}>
+            {mainArticle && mainArticle.title}
+            Main Empty
         </div>
     )
 });

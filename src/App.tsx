@@ -4,7 +4,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import {observer, Provider} from "mobx-react";
 
 import classNames from 'classnames/bind';
-import css from './view/layout/Layout.scss';
+import css from './App.scss';
 const cx = classNames.bind(css);
 
 /*UTIL*/
