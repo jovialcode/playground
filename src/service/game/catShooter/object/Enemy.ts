@@ -10,6 +10,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   private _bullets: Phaser.GameObjects.Group;
   private _moveTween: Phaser.Tweens.Tween;
   private _image : IMAGE_CONFIG;
+  private _emitter : Phaser.Types.GameObjects.Particles;
   private _dyingTime : number;
   private _speed : number;
   private _lives : number;
@@ -111,6 +112,23 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     if(this._lives > 0) this._lives -= 1;
     else{
       ScoreManager.score += this._bonus;
+      var particle = this.scene.add.particles('flash1');
+      var emitter = particle.createEmitter({
+        x: this.x,
+        y: this.y,
+        speed: { min: -800, max: 800 },
+        angle: { min: 0, max: 360 },
+        scale: { start: 0.5, end: 0 },
+        quantity:1,
+        blendMode: 'SCREEN',
+        //active: false,
+        lifespan: 20,
+        gravityY: 60
+      });
+
+      this.scene.time.delayedCall(150, function() {
+        particle.destroy();
+      });
       this.scene.sound.play('explosion', {
         volume: 0.3
       });
