@@ -6,6 +6,7 @@ export default class GameScene extends Phaser.Scene {
     private _leon : Leon;
     private _background : Phaser.GameObjects.TileSprite;
     private _enemies: Phaser.GameObjects.Group;
+    private _shooterEnemy : Phaser.GameObjects.Group;
     private _level : number;
     private _centerX : number;
     private _bottom: number;
@@ -18,6 +19,7 @@ export default class GameScene extends Phaser.Scene {
 
     init(): void {
         this._enemies = this.add.group({ runChildUpdate: true });
+        this._shooterEnemy = this.add.group({ runChildUpdate: true });
         this._level = 0;
         this._centerX = this.cameras.main.width / 2;
         this._bottom = this.cameras.main.height - 90;
@@ -36,6 +38,14 @@ export default class GameScene extends Phaser.Scene {
 
         //적 생성
         this.createEnemy();
+
+        //랜덤 적 생성
+        this.time.addEvent({
+            delay: 11500,
+            callback: ()=>{this.createShooterEnemy(this._shooterEnemy.getChildren().length %2=== 0)},
+            callbackScope: this,
+            loop: true
+        });
     }
 
     createEnemy(){
@@ -55,6 +65,20 @@ export default class GameScene extends Phaser.Scene {
         }
     }
 
+    createShooterEnemy(way : boolean){
+        if(this._shooterEnemy.getChildren().length > 4) return;
+
+        let side = {
+            x : way?  0 : 750,
+        };
+
+        this._shooterEnemy.add(
+            new Enemy(this,
+                side.x,
+                0,
+                ENEMY_LIST.MOUSE));
+    }
+
     update(): void {
         this._background.tilePositionY += 2;
 
@@ -72,6 +96,14 @@ export default class GameScene extends Phaser.Scene {
         this.physics.overlap(
             this._leon.getBullets(),
             this._enemies,
+            this.bulletHitEnemy,
+            null,
+            this
+        );
+
+        this.physics.overlap(
+            this._leon.getBullets(),
+            this._shooterEnemy,
             this.bulletHitEnemy,
             null,
             this

@@ -115,6 +115,25 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
           repeat: -1
         });
         break;
+
+      case ENEMY_LIST.MOUSE:
+        this._dyingTime = 160;
+        this._speed = 80;
+        this._lives = 1;
+        this._bonus = 200;
+        this._image = {
+          width : 32,
+          height : 32
+        };
+        this._moveTween = this.scene.tweens.add({
+          targets: this,
+          x: {value: (this.x === 750? - 600 : 600), duration: 6000},
+          y: {value: 700, duration: 6000},
+          ease: "Power0",
+          yoyo: true,
+          repeat: -1
+        });
+        break;
     }
   }
 

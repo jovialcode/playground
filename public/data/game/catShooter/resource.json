@@ -49,6 +49,15 @@
       },
       {
         "type": "image",
+        "key": "mouse",
+        "url": "/data/game/catShooter/img/mouse.png",
+        "frameConfig": {
+          "frameWidth": 12,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "image",
         "key": "flash1",
         "url": "/data/game/catShooter/img/flash1.png",
         "frameConfig": {

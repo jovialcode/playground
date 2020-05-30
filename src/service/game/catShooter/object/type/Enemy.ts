@@ -3,10 +3,12 @@ export type ENEMY_TYPE =
 	| 'fish'
 	| 'food'
 	| 'cuteFood'
+	| 'mouse'
 
 export enum ENEMY_LIST{
 	CAN = 'can',
 	FISH = 'fish',
 	FOOD = 'food',
-	CUTEFOOD = 'cuteFood'
+	CUTEFOOD = 'cuteFood',
+	MOUSE = 'mouse'
 }
