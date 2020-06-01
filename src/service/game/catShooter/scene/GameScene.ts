@@ -1,12 +1,14 @@
 import Leon from "../object/Leon";
 import Enemy from "../object/Enemy";
 import {ENEMY_LIST} from "../object/type";
+import GameOverScene from "./GameOverScene";
 
 export default class GameScene extends Phaser.Scene {
     private _leon : Leon;
     private _background : Phaser.GameObjects.TileSprite;
     private _enemies: Phaser.GameObjects.Group;
     private _shooterEnemy : Phaser.GameObjects.Group;
+    private _textManager : Phaser.GameObjects.Text;
     private _level : number;
     private _centerX : number;
     private _bottom: number;
@@ -25,6 +27,15 @@ export default class GameScene extends Phaser.Scene {
         this._bottom = this.cameras.main.height - 90;
 
         this._background = this.add.tileSprite(this._centerX, this._bottom - 260,792,700,'background');
+
+        this.physics.config = {
+            matter : {
+                setBounds : {
+                    x: 700,
+                    y: 700
+                }
+            }
+        }
     }
 
     create() : void{
@@ -46,6 +57,9 @@ export default class GameScene extends Phaser.Scene {
             callbackScope: this,
             loop: true
         });
+
+        //레옹이 생명 표시
+        this._textManager = this.add.text(this._centerX-50, 0, `남아 있는 생명 : ${this._leon.lives}`, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
     }
 
     createEnemy(){
@@ -85,6 +99,8 @@ export default class GameScene extends Phaser.Scene {
         if (this._leon.active) {
             this._leon.update();
             this.checkCollisions();
+        }else{
+            this.scene.start('GameOverScene');
         }
 
         if(this._enemies.getChildren().length == 0){
@@ -108,10 +124,24 @@ export default class GameScene extends Phaser.Scene {
             null,
             this
         );
+
+        this.physics.overlap(
+            this._leon,
+            this._shooterEnemy,
+            this.enemyHitLeon,
+            null,
+            this
+        );
     }
 
     private bulletHitEnemy(bullet, enemy): void {
         bullet.destroy();
         enemy.gotHurt();
+    }
+
+    private enemyHitLeon(leon, enemy): void {
+        leon.gotHurt();
+        enemy.gotHurt();
+        this._textManager.setText(`남아 있는 생명 : ${this._leon.lives}`)
     }
 }

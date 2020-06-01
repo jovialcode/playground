@@ -1,6 +1,7 @@
 import {BGM_LIST, IBaseGame} from "@type";
 import BootScene from "./scene/BootScene";
 import GameScene from "./scene/GameScene";
+import GameOverScene from "./scene/GameOverScene";
 
 export default class CatShooter implements IBaseGame{
     private _title: string;
@@ -28,7 +29,7 @@ export default class CatShooter implements IBaseGame{
                 debug: true,
                 gravity: { y: 0 },
                 setBounds: {
-                    width: 300,
+                    width: 700,
                     height: 700
                 }
             }
@@ -38,7 +39,7 @@ export default class CatShooter implements IBaseGame{
             keyboard: true
         };
 
-        this._scene = [new BootScene(), new GameScene()]
+        this._scene = [new BootScene(), new GameScene(), new GameOverScene()]
     }
     destroy(){}
 

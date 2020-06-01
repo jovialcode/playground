@@ -66,11 +66,11 @@
     align-items: center;
     .bgmMute{
       @include bgmStyle;
-      background : url("/img/play.png") #ffffff center no-repeat;
+      background : url("/img/mute.png") #ffffff center no-repeat;
     }
     .bgmPlay{
       @include bgmStyle;
-      background : url("/img/mute.png") #ffffff center no-repeat;
+      background : url("/img/play.png") #ffffff center no-repeat;
     }
     .volumeWrap{
       display: inline-block;
