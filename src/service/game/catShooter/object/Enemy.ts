@@ -4,6 +4,7 @@ import {
   IMAGE_CONFIG
 } from "./type";
 import ScoreManager from "@core/ScoreManager";
+import Bullet from "./Bullet";
 
 export default class Enemy extends Phaser.GameObjects.Sprite {
   private readonly _type : ENEMY_TYPE;
@@ -14,6 +15,9 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   private _speed : number;
   private _lives : number;
   private _bonus : number;
+  public getBullets(): Phaser.GameObjects.Group {
+    return this._bullets;
+  }
 
   constructor(scene : Phaser.Scene, x :number, y :number, type : ENEMY_TYPE) {
     super(scene, x, y, type);
@@ -26,17 +30,10 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     this.setInteractive();
     this.initPhysics();
 
-    this.initTweens();
-
     this.scene.add.existing(this);
   }
 
   private initVariables() : void{
-    this._bullets = this.scene.add.group({
-      maxSize: 30,
-      runChildUpdate: true
-    });
-
     switch (this._type) {
       case ENEMY_LIST.FOOD:
         this._dyingTime = 100;
@@ -133,6 +130,32 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
           yoyo: true,
           repeat: -1
         });
+        this._bullets = this.scene.add.group({
+          maxSize: 30,
+          runChildUpdate: true
+        });
+
+        //랜덤 적 생성 
+        //TODO  이거 수정해야함..
+        // 그리고 죽고 난 다음에 게임 reset해야할 듯
+        this.scene.time.addEvent({
+          delay: 2500,
+          callback: ()=>{
+            this._bullets.add(
+              new Bullet({
+                scene: this.scene,
+                x: this.x,
+                y: this.y + this.height,
+                key: "bullet",
+                way: 'down',
+                bulletProperties: {
+                  speed: 3
+                }
+              })
+          );},
+          callbackScope: this,
+          loop: true
+        });
         break;
     }
   }
@@ -147,8 +170,18 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enable(this);
   }
 
-  private initTweens(): void {
-
+  private handleShooting(): void {
+      this._bullets.add(
+          new Bullet({
+            scene: this.scene,
+            x: this.x,
+            y: this.y - this.height,
+            key: "bullet",
+            bulletProperties: {
+              speed: 10
+            }
+          })
+      );
   }
 
   public gotHurt(): void {
@@ -173,9 +206,11 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
       this.scene.time.delayedCall(150, function() {
         particle.destroy();
       });
+      
       this.scene.sound.play('explosion', {
         volume: 0.3
       });
+      
       this.setActive(false);
       this.destroy();
     }

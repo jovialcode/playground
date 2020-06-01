@@ -26,7 +26,7 @@ export default class CatShooter implements IBaseGame{
         this._physics = {
             default: 'arcade',
             arcade: {
-                debug: true,
+                debug: false,
                 gravity: { y: 0 },
                 setBounds: {
                     width: 700,

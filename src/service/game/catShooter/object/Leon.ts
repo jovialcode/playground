@@ -74,6 +74,7 @@ export default class Leon extends Phaser.GameObjects.Image {
                     scene: this.scene,
                     x: this.x,
                     y: this.y - this.height,
+                    way:'up',
                     key: "bullet",
                     bulletProperties: {
                         speed: 10
@@ -85,7 +86,9 @@ export default class Leon extends Phaser.GameObjects.Image {
 
     public gotHurt(): void {
         //점수 올리기
-        if(this._lives > 0) this._lives -= 1;
+        if(this._lives > 0) {
+            this._lives -= 1;
+        }
         else{
             var particle = this.scene.add.particles('flash1');
             var emitter = particle.createEmitter({

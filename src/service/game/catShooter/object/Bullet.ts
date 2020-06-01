@@ -1,6 +1,7 @@
 export default class Bullet extends Phaser.GameObjects.Image {
   private _bulletSpeed: number;
   private _remainTime : number;
+  private _way: string;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
@@ -14,6 +15,7 @@ export default class Bullet extends Phaser.GameObjects.Image {
 
   private initVariables(params): void {
     this._remainTime = this.y;
+    this._way = params.way;
     this._bulletSpeed = params.bulletProperties.speed;
   }
 
@@ -30,7 +32,8 @@ export default class Bullet extends Phaser.GameObjects.Image {
     if (this.y < 0 || this.y > this.scene.sys.canvas.height) {
       this.destroy();
     }else{
-      this.setY(this.y - this._bulletSpeed);
+      let updateValue = this._way === 'up'? this.y - this._bulletSpeed : this.y + this._bulletSpeed
+      this.setY(updateValue);
     }
   }
 }

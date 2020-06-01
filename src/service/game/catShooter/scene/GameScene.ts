@@ -109,6 +109,19 @@ export default class GameScene extends Phaser.Scene {
     }
 
     private checkCollisions(): void {
+        this._shooterEnemy.getChildren().map((v) =>{
+            let bullet = v.getBullets();
+
+            if(bullet.getChildren().length > 0){
+                this.physics.overlap(
+                    bullet,
+                    this._leon,
+                    this.enemyBulletHitLeon,
+                    null,
+                    this
+                );
+            }
+        });
         this.physics.overlap(
             this._leon.getBullets(),
             this._enemies,
@@ -137,6 +150,12 @@ export default class GameScene extends Phaser.Scene {
     private bulletHitEnemy(bullet, enemy): void {
         bullet.destroy();
         enemy.gotHurt();
+    }
+
+    private enemyBulletHitLeon(bullet, leon) : void{
+        leon.gotHurt();
+        bullet.destroy();
+        this._textManager.setText(`남아 있는 생명 : ${this._leon.lives}`)
     }
 
     private enemyHitLeon(leon, enemy): void {
