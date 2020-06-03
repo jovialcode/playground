@@ -15,6 +15,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   private _speed : number;
   private _lives : number;
   private _bonus : number;
+  private _bulletEvent : Phaser.Time.TimerEvent;
   public getBullets(): Phaser.GameObjects.Group {
     return this._bullets;
   }
@@ -138,7 +139,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         //랜덤 적 생성 
         //TODO  이거 수정해야함..
         // 그리고 죽고 난 다음에 게임 reset해야할 듯
-        this.scene.time.addEvent({
+        this._bulletEvent = this.scene.time.addEvent({
           delay: 2500,
           callback: ()=>{
             this._bullets.add(
@@ -210,7 +211,9 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
       this.scene.sound.play('explosion', {
         volume: 0.3
       });
-      
+
+      if(this._bulletEvent) this._bulletEvent.remove();
+
       this.setActive(false);
       this.destroy();
     }
