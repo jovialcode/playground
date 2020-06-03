@@ -38,15 +38,7 @@ module.exports = {
                     },
                     { loader: 'sass-loader', options: { sourceMap: true } },
                 ],
-            },
-            {
-                test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-                loader: 'url-loader',
-                options: {
-                    fallback: 'file-loader',
-                    name: '[name].[ext]?[hash]',
-                },
-            },
+            }
         ],
     },
     optimization: {
