@@ -13,6 +13,7 @@ export enum GAME_LIST{
 	FRUIT_CRUSH = 'FRUIT_CRUSH',
 	CAT_LOVER = 'CAT_LOVER',
 	CAT_SHOOTER = 'CAT_SHOOTER',
+	CAT_LAND = 'CAT_LAND',
 	MOTHERS_THEOREM = 'MOTHERS_THEOREM'
 }
 
@@ -21,6 +22,7 @@ export type GAME_LIST_TYPE =
 	|'FRUIT_CRUSH'
 	|'CAT_LOVER'
 	|'CAT_SHOOTER'
+	|'CAT_LAND'
 
 export interface IBaseGame{
 	getConfig : () => {};
@@ -34,6 +36,8 @@ export enum BGM_LIST{
 	CAT_LOVER = 'CAT_LOVER',
 	CAT_SHOOTER = 'CAT_SHOOTER',
 	MOTHERS_THEOREM = 'MOTHERS_THEOREM',
+	CAT_LAND = 'CAT_LAND',
+
 	GAME_OVER = 'GAME_OVER'
 }
 

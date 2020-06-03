@@ -30,6 +30,12 @@ class BGMManager{
                 gameName : GAME_LIST.CAT_SHOOTER,
                 src : `${DEV_GAME_CONFIG_PATH}/catShooter/audio/spaceBackgroundAudio.mp3`,
                 repeat : true
+            },
+            {
+                title : BGM_LIST.CAT_LAND,
+                gameName : GAME_LIST.CAT_LAND,
+                src : `${DEV_GAME_CONFIG_PATH}/catLand/audio/backgroundAudio.mp3`,
+                repeat : true
             }
         ]
     }

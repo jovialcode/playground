@@ -31,6 +31,11 @@ export default class PlayGroundVM {
 				id: 4,
 				title: GAME_LIST.MOTHERS_THEOREM
 			}
+			,
+			{
+				id: 5,
+				title: GAME_LIST.CAT_LAND
+			}
 		];
 	}
 
