@@ -13,6 +13,7 @@
 import {observable} from "mobx";
 import {BGM_LIST, BGM_STATE_TYPE, BGM_TYPE, GAME_LIST, GAME_TYPE} from "@type";
 import {DEV_GAME_CONFIG_PATH} from "../config";
+import {logMethod} from "@util";
 
 class BGMManager{
     private _bgm : HTMLAudioElement | null;
@@ -27,7 +28,8 @@ class BGMManager{
             {
                 title : BGM_LIST.CAT_SHOOTER,
                 gameName : GAME_LIST.CAT_SHOOTER,
-                src : `${DEV_GAME_CONFIG_PATH}/catShooter/audio/spaceBackgroundAudio.mp3`
+                src : `${DEV_GAME_CONFIG_PATH}/catShooter/audio/spaceBackgroundAudio.mp3`,
+                repeat : true
             }
         ]
     }
@@ -45,11 +47,12 @@ class BGMManager{
         if(bgm) this.load(bgm);
     }
 
-    private load(bgm : BGM_TYPE){
+    load(bgm : BGM_TYPE){
+        if(this._bgm) this._bgm.remove();
         const $body = document.querySelector('body');
         this._bgm = document.createElement("audio");
         this._bgm.src = bgm.src;
-        this._bgm.loop = true;
+        this._bgm.loop = bgm.repeat;
         this._bgm.id = 'bgm';
         this._bgm.autoplay = true;
         this._bgm.volume = this._bgmVolume =  0.3; //TODO 이거 줄이는 method랑 view 만들기

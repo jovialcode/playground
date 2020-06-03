@@ -3,7 +3,8 @@ import {MobXProviderContext, observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './Main.scss';
-import {modeChange, renderLog} from "../../util";
+import {modeChange, pageTheme, renderLog} from "@util";
+import BGMManager from "@core/BGMManager";
 
 const cx = classNames.bind(css);
 
@@ -15,14 +16,13 @@ const Main  = observer(() => {
     useEffect(()=>{
         //모드 색상 변경
         modeChange('WHITE');
+        BGMManager.remove();
     },[]);
 
     return (
-        <div className={cx('wrap')}>
-            <div id={cx('main')}>
-                {mainArticle && mainArticle.title}
-                Main Empty
-            </div>
+        <div id={cx('main')}>
+            {mainArticle && mainArticle.title}
+            Main Empty
         </div>
     )
 });

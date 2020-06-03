@@ -31,6 +31,7 @@ class GameManager{
     }
 
     init(game : GAME_TYPE){
+        this.destroy();
         switch(game.title){
             case GAME_LIST.FRUIT_CRUSH:{
                 this._game = new FruitCrush();

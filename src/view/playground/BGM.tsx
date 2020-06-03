@@ -36,7 +36,7 @@ const BGM  = observer(()=> {
         }
             <div className={cx('volumeWrap')}>
                 <button className={cx('volumeDown')} onClick={()=>{volumeDecreaseClickHandler()}}>-</button>
-                <span className={cx('volume')}>{Math.floor(bgmVolume*10)} </span>
+                <span className={cx('volume')}>{Math.round(bgmVolume*10)} </span>
                 <button className={cx('volumeUp')} onClick={()=>{volumeIncreaseClickHandler()}}>+</button>
             </div>
         </div>

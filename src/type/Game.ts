@@ -33,13 +33,15 @@ export enum BGM_LIST{
 	FRUIT_CRUSH = 'FRUIT_CRUSH',
 	CAT_LOVER = 'CAT_LOVER',
 	CAT_SHOOTER = 'CAT_SHOOTER',
-	MOTHERS_THEOREM = 'MOTHERS_THEOREM'
+	MOTHERS_THEOREM = 'MOTHERS_THEOREM',
+	GAME_OVER = 'GAME_OVER'
 }
 
 export type BGM_TYPE = {
 	title: string;
 	gameName: GAME_LIST_TYPE;
-	src : string
+	src : string;
+	repeat : boolean;
 }
 
 export enum	BGM_STATE_TYPE{

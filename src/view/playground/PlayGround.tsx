@@ -26,13 +26,11 @@ const PlayGround  = observer(() => {
     },[]);
 
     return (
-        <div className={cx('wrap')}>
-            <div className={cx('gameWrap')}>
-                <GameList/>
-                <Game/>
-                <Score/>
-                <BGM/>
-            </div>
+        <div className={cx('gameWrap')}>
+            <GameList/>
+            <Game/>
+            <Score/>
+            <BGM/>
         </div>
     )
 });

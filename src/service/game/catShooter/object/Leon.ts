@@ -1,5 +1,6 @@
 import Bullet from "./Bullet";
 import {SPEED_ENUM} from "./type";
+import ScoreManager from "@core/ScoreManager";
 
 export default class Leon extends Phaser.GameObjects.Image {
     private _bullets: Phaser.GameObjects.Group;
@@ -7,6 +8,7 @@ export default class Leon extends Phaser.GameObjects.Image {
     private _shootingKey: Phaser.Input.Keyboard.Key;
     private _movingKey: Phaser.Input.Keyboard.Key;
     private _flyingSpeed: number;
+    private _lives : number;
     public getBullets(): Phaser.GameObjects.Group {
         return this._bullets;
     }
@@ -23,6 +25,7 @@ export default class Leon extends Phaser.GameObjects.Image {
     }
 
     private initVariables(){
+        this._lives = 1;
         this._bullets = this.scene.add.group({
             maxSize: 30,
             runChildUpdate: true
@@ -57,7 +60,6 @@ export default class Leon extends Phaser.GameObjects.Image {
     }
 
     private handleFlying(): void {
-        console.log(`이동 추적 x : ${this.x} y: ${this.y}`);
         if (this._cursors.right.isDown) {
             this.setX(this.x + this._flyingSpeed);
         } else if (this._cursors.left.isDown) {
@@ -72,6 +74,7 @@ export default class Leon extends Phaser.GameObjects.Image {
                     scene: this.scene,
                     x: this.x,
                     y: this.y - this.height,
+                    way:'up',
                     key: "bullet",
                     bulletProperties: {
                         speed: 10
@@ -79,5 +82,40 @@ export default class Leon extends Phaser.GameObjects.Image {
                 })
             );
         }
+    }
+
+    public gotHurt(): void {
+        //점수 올리기
+        if(this._lives > 0) {
+            this._lives -= 1;
+        }
+        else{
+            var particle = this.scene.add.particles('flash1');
+            var emitter = particle.createEmitter({
+                x: this.x,
+                y: this.y,
+                speed: { min: -800, max: 800 },
+                angle: { min: 0, max: 360 },
+                scale: { start: 0.5, end: 0 },
+                quantity:1,
+                blendMode: 'SCREEN',
+                //active: false,
+                lifespan: 20,
+                gravityY: 60
+            });
+
+            this.scene.time.delayedCall(150, function() {
+                particle.destroy();
+            });
+            this.scene.sound.play('explosion', {
+                volume: 0.3
+            });
+            this.setActive(false);
+            this.destroy();
+        }
+    }
+
+    get lives(): number {
+        return this._lives;
     }
 }

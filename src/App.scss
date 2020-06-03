@@ -1,4 +1,15 @@
+@import 'src/common/css/variable';
+
+
 .wrap {
   font-family: 'NotoSanskr_Regular';
 
+  @include wrapCenter;
+
+  position: relative;
+  min-width: $MIN_WIDTH;
+
+  &.empty {
+    min-width: auto;
+  }
 }

@@ -74,7 +74,7 @@ export default class PlayGroundVM {
 
 	changeBGMVolume(volume : number){
 		if(BGMManager.bgmState !== BGM_STATE_TYPE.PLAY) return alert('실행중인 BGM이 없습니다.');
-		if(volume < 0 || volume > 1) return alert('소리는 0 보다 작거나 9보다 클 수 없습니다.');
+		if(volume < 0 || volume > 1) return alert('소리는 1 보다 작거나 10보다 클 수 없습니다.');
 		BGMManager.bgmVolume = volume;
 	}
 
