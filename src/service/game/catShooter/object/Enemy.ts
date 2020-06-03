@@ -136,9 +136,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
           runChildUpdate: true
         });
 
-        //랜덤 적 생성 
-        //TODO  이거 수정해야함..
-        // 그리고 죽고 난 다음에 게임 reset해야할 듯
+        //랜덤 적 생성
         this._bulletEvent = this.scene.time.addEvent({
           delay: 2500,
           callback: ()=>{

@@ -19,7 +19,7 @@ const GameList  = observer(()=> {
         //방어코드
         if(game.title === GAME_LIST.NONE || !$game) return;
         //초기화
-        $game.innerHTML= '';
+        //$game.innerHTML= '';
         //변경 요청
         playGroundVM.changeGame(game)
     };
