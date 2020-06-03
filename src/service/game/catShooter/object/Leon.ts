@@ -85,9 +85,19 @@ export default class Leon extends Phaser.GameObjects.Image {
     }
 
     public gotHurt(): void {
-        //점수 올리기
         if(this._lives > 0) {
             this._lives -= 1;
+            this.scene.tweens.add({
+                targets : this,
+                alpha: {
+                    getStart: () => 1,
+                    getEnd: () => 0
+                },
+                duration: 200,
+                ease :'Linear',
+                repeat: 0,
+                yoyo: true
+            })
         }
         else{
             var particle = this.scene.add.particles('flash1');

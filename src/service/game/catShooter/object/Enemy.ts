@@ -56,7 +56,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
       case ENEMY_LIST.CUTEFOOD:
         this._dyingTime = 120;
-        this._speed = 20;
+        this._speed = 30;
         this._lives = 2;
         this._bonus = 40;
         this._image = {
@@ -75,7 +75,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
       case ENEMY_LIST.CAN:
         this._dyingTime = 140;
-        this._speed = 30;
+        this._speed = 50;
         this._lives = 3;
         this._bonus = 80;
         this._image = {
@@ -96,7 +96,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
       case ENEMY_LIST.FISH:
         this._dyingTime = 160;
-        this._speed = 45;
+        this._speed = 70;
         this._lives = 4;
         this._bonus = 100;
         this._image = {
