@@ -18,7 +18,7 @@ export default class CatLand implements IBaseGame{
         this._backgroundColor = '#000000';
 
         this._height = 371;
-        this._width = 500;
+        this._width = 600;
 
         this._bgm = BGM_LIST.CAT_LAND;
 
@@ -28,7 +28,7 @@ export default class CatLand implements IBaseGame{
                 debug: false,
                 gravity: { y: 0 },
                 setBounds: {
-                    width: 500,
+                    width: 600,
                     height: 371
                 }
             }

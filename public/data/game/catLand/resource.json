@@ -9,11 +9,7 @@
       {
         "type": "image",
         "key": "walkCat",
-        "url": "/data/game/catLand/img/walkCat.png",
-        "frameConfig": {
-          "frameWidth": 80,
-          "frameHeight": 80
-        }
+        "url": "/data/game/catLand/img/walkCat.png"
       }
     ]
   }

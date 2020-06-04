@@ -1,5 +1,6 @@
 export default class Leon extends Phaser.GameObjects.Sprite {
-    private _bullets: Phaser.GameObjects.Group;
+    private _width : number;
+    private _height : number;
     private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
     constructor(params : any) {
@@ -10,11 +11,13 @@ export default class Leon extends Phaser.GameObjects.Sprite {
         this.initImage();
         this.initPhysics();
 
+        this.initSetting();
         this.scene.add.existing(this);
     }
 
     private initVariables(){
-
+        this._width = 40;
+        this._height = 60;
     }
 
     private initInput(): void {
@@ -28,6 +31,11 @@ export default class Leon extends Phaser.GameObjects.Sprite {
 
     private initPhysics(): void {
         this.scene.physics.world.enable(this);
+    }
+
+    private initSetting() : void{
+        this.setSize(this._width, this._height);
+        this.setDisplaySize(this._width, this._height);
     }
 
     update(): void {

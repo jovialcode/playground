@@ -11,7 +11,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     init(): void {
-        this._background = this.add.tileSprite(0, 0,500,371,'background');
+        this._background = this.add.tileSprite(0, 0, this.game.config.width,this.game.config.height,'background');
     }
 
     create() : void{

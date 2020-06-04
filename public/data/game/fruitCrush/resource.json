@@ -4,62 +4,62 @@
       {
         "type": "image",
         "key": "cookie1",
-        "url": "/img/fruitCrush/cookie1.png"
+        "url": "/data/game/fruitCrush/img/cookie1.png"
       },
       {
         "type": "image",
         "key": "cookie2",
-        "url": "/img/fruitCrush/cookie2.png"
+        "url": "/data/game/fruitCrush/img/cookie2.png"
       },
       {
         "type": "image",
         "key": "croissant",
-        "url": "/img/fruitCrush/croissant.png"
+        "url": "/data/game/fruitCrush/img/croissant.png"
       },
       {
         "type": "image",
         "key": "cupcake",
-        "url": "/img/fruitCrush/cupcake.png"
+        "url": "/data/game/fruitCrush/img/cupcake.png"
       },
       {
         "type": "image",
         "key": "donut",
-        "url": "/img/fruitCrush/donut.png"
+        "url": "/data/game/fruitCrush/img/donut.png"
       },
       {
         "type": "image",
         "key": "eclair",
-        "url": "/img/fruitCrush/eclair.png"
+        "url": "/data/game/fruitCrush/img/eclair.png"
       },
       {
         "type": "image",
         "key": "macaroon",
-        "url": "/img/fruitCrush/macaroon.png"
+        "url": "/data/game/fruitCrush/img/macaroon.png"
       },
       {
         "type": "image",
         "key": "pie",
-        "url": "/img/fruitCrush/pie.png"
+        "url": "/data/game/fruitCrush/img/pie.png"
       },
       {
         "type": "image",
         "key": "poptart1",
-        "url": "/img/fruitCrush/poptart1.png"
+        "url": "/data/game/fruitCrush/img/poptart1.png"
       },
       {
         "type": "image",
         "key": "poptart2",
-        "url": "/img/fruitCrush/poptart2.png"
+        "url": "/data/game/fruitCrush/img/poptart2.png"
       },
       {
         "type": "image",
         "key": "starcookie1",
-        "url": "/img/fruitCrush/starcookie1.png"
+        "url": "/data/game/fruitCrush/img/starcookie1.png"
       },
       {
         "type": "image",
         "key": "starcookie2",
-        "url": "/img/fruitCrush/starcookie2.png"
+        "url": "/data/game/fruitCrush/img/starcookie2.png"
       }
     ]
   }
