@@ -1,4 +1,5 @@
 import Leon from "../object/Leon";
+import {logMethod} from "@util";
 
 export default class GameScene extends Phaser.Scene {
     private _leon : Leon;
@@ -10,10 +11,16 @@ export default class GameScene extends Phaser.Scene {
         });
     }
 
+    @logMethod
     init(): void {
-        this._background = this.add.tileSprite(0, 0, this.game.config.width,this.game.config.height,'background');
+        this._background = this.add.tileSprite(
+            0, 0,
+            600, 371,
+            'background'
+        );
     }
 
+    @logMethod
     create() : void{
         this._leon = new Leon({
             scene: this,
@@ -22,11 +29,9 @@ export default class GameScene extends Phaser.Scene {
             key: 'walkCat',
             frame: {frameWidth: 32, frameHeight: 48 }
         });
-
     }
 
     update(): void {
 
     }
-
 }

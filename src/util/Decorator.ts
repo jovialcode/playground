@@ -26,7 +26,7 @@ export function logMethod(
         const params = args.map(a => JSON.stringify(a)).join();
         const result = method.apply(this, args);
 
-        console.log(`[${target.constructor.name}에서 호출]: [함수명] ${propertyName} [인자](${params})`);
+        console.log(`[${target.constructor.name}에서 호출] - [함수명] ${propertyName} - [인자] (${params}) `);
 
         return result;
     }
