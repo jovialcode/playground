@@ -7,3 +7,6 @@ package-lock.json
 
 #intelliJ
 /.idea
+
+#test ouput
+/.nyc_output
