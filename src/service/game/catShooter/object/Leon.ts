@@ -1,6 +1,7 @@
 import Bullet from "./Bullet";
 import {SPEED_ENUM} from "./type";
 import ScoreManager from "@core/ScoreManager";
+import {Const} from "../const/Const";
 
 export default class Leon extends Phaser.GameObjects.Image {
     private _bullets: Phaser.GameObjects.Group;
@@ -8,6 +9,7 @@ export default class Leon extends Phaser.GameObjects.Image {
     private _shootingKey: Phaser.Input.Keyboard.Key;
     private _movingKey: Phaser.Input.Keyboard.Key;
     private _flyingSpeed: number;
+    private _bulletReloadTime: number;
     private _lives : number;
     public getBullets(): Phaser.GameObjects.Group {
         return this._bullets;
@@ -30,6 +32,7 @@ export default class Leon extends Phaser.GameObjects.Image {
             maxSize: 30,
             runChildUpdate: true
         });
+        this._bulletReloadTime = 100;
 
         this._flyingSpeed = SPEED_ENUM.level1;
     }
@@ -39,10 +42,6 @@ export default class Leon extends Phaser.GameObjects.Image {
         this._shootingKey = this.scene.input.keyboard.addKey(
             Phaser.Input.Keyboard.KeyCodes.SPACE
         );
-        // this._movingKey = this.scene.input.keyboard.addKeys({
-        //         Phaser.Input.Keyboard.KeyCodes.LEFT,
-        //         Phaser.Input.Keyboard.KeyCodes.RIGHT,
-        // );
     }
 
     private initImage(): void{
@@ -68,7 +67,7 @@ export default class Leon extends Phaser.GameObjects.Image {
     }
 
     private handleShooting(): void {
-        if (this._shootingKey.isDown) {
+        if (this._shootingKey.isDown && this.scene.game.getTime() > this._bulletReloadTime) {
             this._bullets.add(
                 new Bullet({
                     scene: this.scene,
@@ -81,6 +80,7 @@ export default class Leon extends Phaser.GameObjects.Image {
                     }
                 })
             );
+            this._bulletReloadTime =  this.scene.game.getTime() + 100;
         }
     }
 
