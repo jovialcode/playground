@@ -1,5 +1,4 @@
-import 'mocha';
-import * as assert from "assert";
+const assert = require("assert");
 
 describe('Mocha Test', () => {
     it('my test', () => {
