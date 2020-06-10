@@ -1,7 +1,19 @@
+export interface LeonConfig {
+    height : number;
+    width : number;
+    speed : number;
+    jump : number;
+}
+
+export interface LeonFlag {
+    onJump : boolean;
+}
+
 export default class Leon extends Phaser.GameObjects.Sprite {
-    private _width : number;
-    private _height : number;
+    private _config : LeonConfig;
+    private _flag : LeonFlag;
     private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+    private _jumpKey : Phaser.Input.Keyboard.Key;
 
     constructor(params : any) {
         super(params.scene, params.x, params.y, params.key, params.frame);
@@ -14,9 +26,19 @@ export default class Leon extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this);
     }
 
+    /////////////////////////////////////////////////////////////
+
     private initVariables(){
-        this._width = 40;
-        this._height = 60;
+        this._config = {
+            width : 40,
+            height : 60,
+            speed : 10,
+            jump : 20
+        };
+
+        this._flag = {
+            onJump : false
+        }
     }
 
     private initInput(): void {
@@ -30,14 +52,36 @@ export default class Leon extends Phaser.GameObjects.Sprite {
 
     private initPhysics(): void {
         this.scene.physics.world.enable(this);
+        this._jumpKey = this.scene.input.keyboard.addKey(
+            Phaser.Input.Keyboard.KeyCodes.SPACE
+        );
     }
 
     private initSetting() : void{
-        this.setSize(this._width, this._height);
-        this.setDisplaySize(this._width, this._height);
+        this.setSize(this._config.width, this._config.height);
+        this.setDisplaySize(this._config.width, this._config.height);
     }
+
+    /////////////////////////////////////////////////////////////
 
     update(): void {
-
+        // 레옹 움직임 업데이트
+        this.updatePosition();
     }
+
+    private updatePosition(): void {
+        //좌우 이동
+        if (this._cursors.right.isDown) {
+            this.setX(this.x + this._config.speed);
+        } else if (this._cursors.left.isDown) {
+            this.setX(this.x - this._config.speed);
+        }
+        
+        //점프
+        if(this._jumpKey.isDown){
+            this.setY(this.y + this._config.jump);
+        }
+    }
+
+    /////////////////////////////////////////////////////////////
 }

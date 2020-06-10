@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
-		"dev": "webpack-dev-server --mode development --config ./webpack/index.js --open chrome",
+		"start": "webpack-dev-server --mode development --config ./webpack/index.js --open chrome",
 		"build": "webpack --mode production --config ./webpack/index.js",
 		"test": "nyc --reporter=text mocha"
 	},

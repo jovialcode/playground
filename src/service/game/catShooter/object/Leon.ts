@@ -32,7 +32,7 @@ export default class Leon extends Phaser.GameObjects.Image {
             maxSize: 30,
             runChildUpdate: true
         });
-        this._bulletReloadTime = 100;
+        this._bulletReloadTime = 50;
 
         this._flyingSpeed = SPEED_ENUM.level1;
     }
@@ -80,7 +80,7 @@ export default class Leon extends Phaser.GameObjects.Image {
                     }
                 })
             );
-            this._bulletReloadTime =  this.scene.game.getTime() + 100;
+            this._bulletReloadTime =  this.scene.game.getTime() + 50;
         }
     }
 
