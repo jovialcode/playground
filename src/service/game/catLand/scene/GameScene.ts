@@ -51,7 +51,7 @@ export default class GameScene extends Phaser.Scene {
             scene: this,
             x: 0,
             y: 0,
-            key: 'walkCat',
+            key: 'ruuningLeon',
             frame: {frameWidth: 32, frameHeight: 48 }
         });
         this._camera.startFollow(this._leon);

@@ -1,0 +1,35 @@
+{
+  "frames": [
+    {
+      "filename": "run01",
+      "frame": {
+        "h" : 58,
+        "w": 56,
+        "x": 54,
+        "y": 0
+      },
+      "rotated": false,
+      "sourceSize": {
+        "w": 56,
+        "h": 64
+      },
+      "spriteSourceSize": {
+        "h": 58,
+        "w": 56,
+        "x": 0,
+        "y": 0
+      },
+      "trimmed" : true
+    }
+  ],
+  "meta": {
+    "format": "RGBA8888",
+    "image": "/data/game/catLand/img/walkCat.png",
+    "scale": "0.2",
+    "size": {
+      "w": 252,
+      "h": 256},
+    "smartupdate": "$TexturePacker:SmartUpdate:fb56f261b1eb04e3215824426595f64c$",
+    "version": "1.0"
+  }
+}

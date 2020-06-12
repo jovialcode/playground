@@ -19,8 +19,8 @@ export default class Leon extends Phaser.GameObjects.Sprite {
         super(params.scene, params.x, params.y, params.key, params.frame);
 
         this.initVariables();
-        this.initInput();
         this.initImage();
+        this.initInput();
         this.initPhysics();
         this.initSetting();
         this.scene.add.existing(this);
@@ -47,6 +47,7 @@ export default class Leon extends Phaser.GameObjects.Sprite {
 
     private initImage(): void{
         this.setOrigin(0, 0);
+        this.setScale(2,2);
         this.setInteractive();
     }
 
