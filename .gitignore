@@ -15,3 +15,7 @@ eureka/build
 #zuul
 zuul/.gradle
 zuul/build
+
+#auth
+auth/.gradle
+auth/build

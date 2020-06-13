@@ -30,4 +30,6 @@
 
 #[MSA 구성]
 - front server : 8080
-- api gateway : 8760
+- eureka server : 8761
+- api gateway zuul server : 8090
+- auth server : 8095
