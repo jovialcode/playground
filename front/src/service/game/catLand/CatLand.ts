@@ -17,20 +17,16 @@ export default class CatLand implements IBaseGame{
         this._title = 'CatLand';
         this._backgroundColor = '#000000';
 
-        this._height = 371;
         this._width = 600;
+        this._height = 600;
 
         this._bgm = BGM_LIST.CAT_LAND;
 
         this._physics = {
             default: 'arcade',
             arcade: {
-                debug: false,
-                gravity: { y: 0 },
-                setBounds: {
-                    width: 600,
-                    height: 371
-                }
+                debug: true,
+                gravity: { y: 600 }
             }
         };
 
@@ -46,6 +42,7 @@ export default class CatLand implements IBaseGame{
         let config : {} = {
             title : this._title,
             width : this._width,
+            type : Phaser.AUTO,
             height : this._height,
             physics : this._physics,
             input : this._input,

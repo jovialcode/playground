@@ -40,6 +40,7 @@ export default class BootScene extends Phaser.Scene {
 
         //여기서 리소스 로딩함.
         this.load.pack("preload", "/data/game/catLand/resource.json", "preload");
+        this.load.spritesheet('runningLeon', '/data/game/catLand/img/walkCat_resize.png', { frameWidth: 60, frameHeight: 65 });
     }
 
     update(): void {

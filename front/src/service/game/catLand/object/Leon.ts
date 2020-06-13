@@ -7,13 +7,13 @@ export interface LeonConfig {
 
 export interface LeonFlag {
     onJump : boolean;
+    onFloor : boolean;
 }
 
 export default class Leon extends Phaser.GameObjects.Sprite {
     private _config : LeonConfig;
     private _flag : LeonFlag;
     private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
-    private _jumpKey : Phaser.Input.Keyboard.Key;
 
     constructor(params : any) {
         super(params.scene, params.x, params.y, params.key, params.frame);
@@ -37,7 +37,8 @@ export default class Leon extends Phaser.GameObjects.Sprite {
         };
 
         this._flag = {
-            onJump : false
+            onJump : false,
+            onFloor : false,
         }
     }
 
@@ -47,15 +48,20 @@ export default class Leon extends Phaser.GameObjects.Sprite {
 
     private initImage(): void{
         this.setOrigin(0, 0);
-        this.setScale(2,2);
+        this.setScale(1,1);
         this.setInteractive();
     }
 
     private initPhysics(): void {
         this.scene.physics.world.enable(this);
-        this._jumpKey = this.scene.input.keyboard.addKey(
-            Phaser.Input.Keyboard.KeyCodes.SPACE
-        );
+        //this.body.setCollideWorldBounds(true);
+
+        this.body.setGravityY(100);
+        this.body.setBounce(0.2);
+        this.body.setSize(6, 12);
+        this.body.setOffset(6, 4);
+        this.body.maxVelocity.x = 800;
+        this.body.maxVelocity.y = 500;
     }
 
     private initSetting() : void{
@@ -71,16 +77,26 @@ export default class Leon extends Phaser.GameObjects.Sprite {
     }
 
     private updatePosition(): void {
-        //좌우 이동
+        //상좌우이동
         if (this._cursors.right.isDown) {
-            this.setX(this.x + this._config.speed);
-        } else if (this._cursors.left.isDown) {
-            this.setX(this.x - this._config.speed);
+            this.body.setVelocityX(+400);
+            this._flag.onFloor = true;
+            this._flag.onJump = false;
+            this.flipX = false;
+        } else if(this._cursors.left.isDown) {
+            this.body.setVelocityX(-400);
+            this._flag.onFloor = true;
+            this._flag.onJump = false;
+            this.flipX = true;
+        } else {
+            this.body.setVelocityX(0);
+            this._flag.onFloor = false;
+            this._flag.onJump = false;
         }
-        
-        //점프
-        if(this._jumpKey.isDown){
-            this.setY(this.y + this._config.jump);
+
+        if(this._cursors.space.isDown && !this._flag.onJump){
+            this._flag.onJump = true;
+            this.body.setVelocityY(-300);
         }
     }
 

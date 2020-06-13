@@ -5,16 +5,6 @@
         "type": "image",
         "key": "background",
         "url": "/data/game/catLand/img/landBackground.jpg"
-      },
-      {
-        "type": "image",
-        "key": "walkCat",
-        "url": "/data/game/catLand/img/walkCat.png"
-      },
-      {
-        "type": "json",
-        "key": "ruuningLeon",
-        "url": "/data/game/catLand/json/running_leon.json"
       }
     ]
   }

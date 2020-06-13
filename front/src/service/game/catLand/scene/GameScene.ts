@@ -4,6 +4,7 @@ import {logMethod} from "@util";
 export default class GameScene extends Phaser.Scene {
     private _leon : Leon;
     private _background : Phaser.GameObjects.TileSprite;
+    private _ground : Phaser.GameObjects.Sprite;
     private _camera : Phaser.Cameras.Scene2D.Camera;
 
     constructor() {
@@ -31,6 +32,9 @@ export default class GameScene extends Phaser.Scene {
         );
         this._background.setOrigin(0,0);
         this._background.setScrollFactor(0,0);
+
+        this._ground = this.physics.add.sprite(0, 0,
+            'background');
     }
 
     @logMethod
@@ -42,7 +46,10 @@ export default class GameScene extends Phaser.Scene {
 
     @logMethod
     create() : void{
+        //플레이어 셋팅
         this.createPlayer()
+        //물리력(중력) 셋팅
+        this.createPhysics();
     }
 
     @logMethod
@@ -51,10 +58,15 @@ export default class GameScene extends Phaser.Scene {
             scene: this,
             x: 0,
             y: 0,
-            key: 'ruuningLeon',
-            frame: {frameWidth: 32, frameHeight: 48 }
+            key: 'runningLeon',
+            frame: 60
         });
         this._camera.startFollow(this._leon);
+    }
+
+    @logMethod
+    private createPhysics() : void{
+        this.physics.add.collider(this._background, this._leon);
     }
 
     /////////////////////////////////////////////////////////////
