@@ -1,0 +1,85 @@
+@import '$commonCss/variable';
+
+.calendar{
+  width:300px;
+  height:300px;
+
+  .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height:30px;
+
+    .title{
+      font-family: NotoSanskr_Bold;
+    }
+    button {
+      cursor: pointer;
+      outline: none;
+      display: inline-flex;
+      background: transparent;
+      border: none;
+      font-size: 20pt;
+      padding: 4px;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: rgba(rgba(255, 26, 5, 0.51), 0.1);
+      }
+
+      &:active {
+        background-color: rgba(rgba(255, 26, 5, 0.51), 0.2);
+      }
+    }
+  }
+
+  .body{
+    .row {
+      display: flex;
+      cursor: pointer;
+
+      &:first-child{
+        margin-top:10px;
+        cursor: initial;
+        font-family: NotoSanskr_Medium;
+
+        .box:hover > span.text{
+          background-color: white;
+        }
+      }
+
+      .box{
+        position: relative;
+        display: inline-flex;
+        width: calc(100%/7);
+        height: 0;
+        padding-bottom: calc(100%/7);
+        font-size: 12pt;
+        &:hover{
+          span.text{
+            background-color: rgba(#588dff, 0.1);
+          }
+        }
+        &.selected{
+          span.text{
+            background-color: #588dff;
+            color: white;
+          }
+        }
+        span.text{
+          border-radius: 100%;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 60%;
+          height: 60%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+    }
+  }
+}

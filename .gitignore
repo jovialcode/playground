@@ -1,12 +1,17 @@
-#npm
-/node_modules
-package-lock.json
-
-#build
-/public/build
-
 #intelliJ
 /.idea
+*.iml
 
-#test ouput
-/.nyc_output
+#front
+front/.nyc_output
+front/node_modules
+front/package-lock.json
+front/public/build
+
+#eureka
+eureka/.gradle
+eureka/build
+
+#zuul
+zuul/.gradle
+zuul/build

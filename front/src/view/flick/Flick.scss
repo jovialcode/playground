@@ -1,0 +1,8 @@
+@import '$commonCss/variable';
+
+#flick{
+  display: flex;
+  justify-content: center;
+
+  height: $CONTAINER_MIN_HEIGHT;
+}

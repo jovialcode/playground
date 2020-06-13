@@ -11,14 +11,16 @@
     - 게임, 화면, 모델을 오가야하니깐 Manager 개념으로 만들것 [DONE]
 7. BGM Manager  [DONE]
     - 볼륨 조절하는거 만들것 ! [DONE]
-8. 게임 소스 분리할 것 [2020.06.13]
+8. MSA [2020.06.13]
+    - UI 프론트 서버
     - API 서버 만들 것
     - 인증 서버 만들 것
     - k8s와 docker, aws에 배포할 것
     - github action or zenkins 로 배포 할 것
     - 개인적으로 마이크로서비스 아키텍처는 nginx를 바탕으로 할 것
-    - api 서버는 netflix zuul, eureka 해볼 것 
+    - api gateway 서버는 netflix zuul, eureka 해볼 것 
     - 게임은 나중에 모바일로 할 것 이지만 API는 같이 쓸 것을 고려할 것 !
+    - 이렇게 되면 webServer도 node 백앤드가 필요하지 않을까?
 
 #[주의사항]
 1. 방어코드 작성하는 것을 유념하기
@@ -26,5 +28,6 @@
 3. TDD를 바탕으로 개발 할 것
 
 
-
-
+#[MSA 구성]
+- front server : 8080
+- api gateway : 8760
