@@ -19,3 +19,7 @@ zuul/build
 #auth
 auth/.gradle
 auth/build
+
+#user API server
+user-api/.gradle
+user-api/build

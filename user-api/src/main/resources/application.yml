@@ -1,0 +1,17 @@
+server:
+  port: 8180
+
+spring:
+  application:
+    name: user-api
+
+eureka:
+  instance:
+    hostname: localhost
+    client:
+      registerWithEureka: true
+      fetchRegistry: true
+      serviceUrl:
+        defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    server:
+      enable-self-preservation: true

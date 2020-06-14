@@ -33,3 +33,4 @@
 - eureka server : 8761
 - api gateway zuul server : 8090
 - auth server : 8095
+- user API server : 8180

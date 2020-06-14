@@ -1,14 +1,22 @@
 server:
   port: 8095
 
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:60012/playground
+    username: root
+    password: Passw0rd!
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
 security:
   oauth2:
     client:
       client-id: auth_id
-      client-secret: auth_secret
+    client-secret: auth_secret
     resource:
       jwt:
         key-value: jwt_secret_key
-
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
