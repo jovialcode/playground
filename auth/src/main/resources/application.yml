@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:60012/playground
+    url: jdbc:mysql://localhost:60012/user_authentication
     username: root
     password: Passw0rd!
   jpa:
