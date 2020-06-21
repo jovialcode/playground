@@ -1,7 +1,7 @@
 FROM node:12-slim
-COPY ../front/package.json /src/package.json
+COPY package.json /src/package.json
 RUN  cd /src; npm install --silent
-COPY ../ /src
+COPY .. /src
 EXPOSE 3000
 WORKDIR /src
 
