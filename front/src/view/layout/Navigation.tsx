@@ -13,7 +13,7 @@ const Navigation  = () => {
                     <NavLink to='/life' activeClassName="active">생활</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/flick' activeClassName="active">정리정돈</NavLink>
+                    <NavLink to='/flick' activeClassName="active">개발노트</NavLink>
                 </li>
                 <li>
                     <NavLink to='/playground' activeClassName="active">오락실</NavLink>

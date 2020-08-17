@@ -27,6 +27,9 @@
 2. typescript에서 type을 체크하는 추론방법도 잘 생각해볼 것
 3. TDD를 바탕으로 개발 할 것
 
+#[궁금한것]
+1. 프론트 서버가 필요할까?(Front Controller)
+2. 만약 내가 React와 ES로 프론트를 짯다면 노드 서버가 필요하겠네? 노드 서버 가 필요하겠어  
 
 #[MSA 구성]
 - front server : 8080
@@ -34,3 +37,4 @@
 - api gateway zuul server : 8090
 - auth server : 8095
 - user API server : 8180
+- blog API server : 8181
