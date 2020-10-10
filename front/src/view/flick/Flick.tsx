@@ -5,6 +5,7 @@ import classNames from 'classnames/bind';
 import css from './Flick.scss';
 import {modeChange, renderLog} from "@util";
 import BGMManager from "@core/BGMManager";
+import ArticleList from "./ArticleList";
 
 const cx = classNames.bind(css);
 
@@ -19,7 +20,7 @@ const Flick  = observer(() => {
 
     return (
         <div id={cx('flick')}>
-            Flick Empty
+            <ArticleList/>
         </div>
     )
 });

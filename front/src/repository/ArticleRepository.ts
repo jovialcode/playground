@@ -1,16 +1,12 @@
 import axios, {AxiosResponse} from 'axios';
 
 import {DEV_ARTICLE_PATH} from "../config";
-import {METHOD, METHOD_TYPE} from "@type";
+import {IArticle, METHOD, METHOD_TYPE} from "@type";
+import ArticleVO from "../valueObject/ArticleVO";
 
-export interface IMainRs {
-    title : string;
-    subTitle : string;
-    keyword : string[];
-    createDate : string;
-    content : string;
+export interface IArticleListRs {
+    articleList : ArticleVO[]
 }
-
 
 class ArticleRepository{
     private readonly _path : string;
@@ -21,12 +17,28 @@ class ArticleRepository{
         this._method = METHOD.GET;
     }
 
-    async loadMain() : Promise<AxiosResponse<IMainRs>>{
+    async loadMain() : Promise<AxiosResponse<ArticleVO>>{
         return axios({
             method: this._method,
             url : `${this._path}/main.json`
         });
     }
+
+    async loadArticleList() : Promise<AxiosResponse<IArticleListRs>>{
+        return axios({
+            method : METHOD.GET,
+            url : `${this._path}/articleList.json`
+        });
+    }
+
+    async loadArticle(articleSn : number) : Promise<AxiosResponse<ArticleVO>>{
+        return axios({
+            method : METHOD.GET,
+            url : `${this._path}/article.json`
+        });
+    }
+
+
 }
 
 export default new ArticleRepository()

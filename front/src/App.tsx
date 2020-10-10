@@ -24,6 +24,7 @@ import Flick from "./view/flick/Flick";
 import MainVM from "./viewModel/MainVM";
 import RootVM from "./viewModel/RootVM";
 import PlayGroundVM from "./viewModel/PlayGroundVM";
+import FlickVM from "./viewModel/FlickVM";
 
 /*new Object*/
 const root = document.getElementById("app");
@@ -50,7 +51,7 @@ const App = observer(() => {
                 </Route>
 
                 <Route path="/flick" >
-                    <Provider playGroundVM={new PlayGroundVM()}>
+                    <Provider flickVM={new FlickVM()}>
                         <Flick/>
                     </Provider>
                 </Route>
