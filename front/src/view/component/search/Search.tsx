@@ -29,7 +29,7 @@ const Search = ( args : ISearch) => {
                 className={cx('searchInput')}
             >
             </input>
-            <button type="submit" ><FiSearch size={25} style={{color:'grey'}}/></button>
+            <button type="submit" ><FiSearch size={25} style={{color:'#d4d8e3'}}/></button>
         </form>
     );
 };

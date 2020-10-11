@@ -19,7 +19,8 @@ const ArticleList = observer(() => {
                 articleList?.map((article: ArticleVO) => {
                     return (
                         <li key={article.sn}>
-                                {article.title}
+                            <h3 className={cx('articleTitle')}>{article.title}</h3>
+                            <div className={cx('articleContent')}>{article.content}</div>
                         </li>
                     );
                 })
