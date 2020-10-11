@@ -24,7 +24,7 @@ class ArticleRepository{
         });
     }
 
-    async loadArticleList() : Promise<AxiosResponse<IArticleListRs>>{
+    async loadArticleList(searchValue? : string) : Promise<AxiosResponse<IArticleListRs>>{
         return axios({
             method : METHOD.GET,
             url : `${this._path}/articleList.json`

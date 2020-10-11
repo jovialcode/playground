@@ -1,0 +1,25 @@
+@import '$commonCss/variable';
+
+.searchForm{
+  position: relative;
+  display: flex;
+
+  box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
+
+  .searchInput {
+    width : 250px;
+    height: 40px;
+    border : 1px solid #d4d8e3;
+    border-radius: 2px;
+
+    padding-left: 35px;
+  }
+
+  > button{
+    position: absolute;
+    vertical-align: middle;
+
+    left: 5px;
+    height: 100%;
+  }
+}

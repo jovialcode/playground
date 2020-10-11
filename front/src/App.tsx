@@ -38,29 +38,32 @@ const App = observer(() => {
             <BrowserRouter>
                 <Header VM={rootVM}/>
                 <Navigation/>
-                <Route exact path="/" >
-                    <Provider mainVM={new MainVM()}>
-                        <Main/>
-                    </Provider>
-                </Route>
 
-                <Route path="/life" >
-                    <Provider playGroundVM={new PlayGroundVM()}>
-                        <Life/>
-                    </Provider>
-                </Route>
+                <div className={cx('contentContainer')}>
+                    <Route exact path="/" >
+                        <Provider mainVM={new MainVM()}>
+                            <Main/>
+                        </Provider>
+                    </Route>
 
-                <Route path="/flick" >
-                    <Provider flickVM={new FlickVM()}>
-                        <Flick/>
-                    </Provider>
-                </Route>
+                    <Route path="/life" >
+                        <Provider playGroundVM={new PlayGroundVM()}>
+                            <Life/>
+                        </Provider>
+                    </Route>
 
-                <Route path="/playground" >
-                    <Provider playGroundVM={new PlayGroundVM()}>
-                        <PlayGround/>
-                    </Provider>
-                </Route>
+                    <Route path="/flick" >
+                        <Provider flickVM={new FlickVM()}>
+                            <Flick/>
+                        </Provider>
+                    </Route>
+
+                    <Route path="/playground" >
+                        <Provider playGroundVM={new PlayGroundVM()}>
+                            <PlayGround/>
+                        </Provider>
+                    </Route>
+                </div>
                 <Footer/>
             </BrowserRouter>
         </div>

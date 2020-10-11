@@ -14,12 +14,12 @@ export default class ArticleModel{
     }
 
     @action
-    private loadArticleList(){
+    public loadArticleList(searchValue? : string){
         this._isLoading = 'LOADING';
 
         (async () => {
             try{
-                const rs = await ArticleRepository.loadArticleList();
+                const rs = await ArticleRepository.loadArticleList(searchValue);
                 const data = rs.data;
 
                 this._articleList = data.articleList;
@@ -30,6 +30,11 @@ export default class ArticleModel{
         })();
     }
 
+    // @ts-ignore
+    public getArticle(sn : number) : ArticleVO | null{
+        if(this._articleList === null) return null;
+        this._articleList.find(vo => vo.sn === sn);
+    }
 
     get articleList(): ArticleVO[] | null {
         return this._articleList;
