@@ -1,0 +1,27 @@
+@import '$commonCss/variable';
+
+.toastContainer{
+  z-index: $Z_INDEX_TOAST;
+  box-sizing: border-box;
+  position: fixed;
+
+  width: 100%;
+  left: 0;
+  top: 50%;
+
+  text-align: center;
+  .toastMsgContainer{
+    min-width: 440px;
+    background-color: #000;
+
+    height: 60px;
+    line-height: 60px;
+    padding: 0 60px;
+  }
+  .toastMsg {
+    text-align: center;
+    color: #fff;
+    font-family: 'NotoSanskr_Regular';
+    font-size: 16px;
+  }
+}

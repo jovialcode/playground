@@ -54,6 +54,9 @@
        "@util": [
          "./util"
        ],
+       "@component": [
+         "./view/component/*"
+       ],
        "@repository": [
          "./repository/*"
        ]

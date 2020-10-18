@@ -30,10 +30,9 @@ export default class ArticleModel{
         })();
     }
 
-    // @ts-ignore
-    public getArticle(sn : number) : ArticleVO | null{
+    public getArticle(sn : number) : ArticleVO | undefined| null{
         if(this._articleList === null) return null;
-        this._articleList.find(vo => vo.sn === sn);
+        return this._articleList.find(vo => vo.sn === sn);
     }
 
     get articleList(): ArticleVO[] | null {

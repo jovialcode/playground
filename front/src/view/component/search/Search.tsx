@@ -4,7 +4,6 @@ import {FiSearch} from "react-icons/fi";
 
 import classNames from 'classnames/bind';
 import css from './Search.scss';
-
 const cx = classNames.bind(css);
 
 export interface ISearch {

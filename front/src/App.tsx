@@ -25,6 +25,9 @@ import MainVM from "./viewModel/MainVM";
 import RootVM from "./viewModel/RootVM";
 import PlayGroundVM from "./viewModel/PlayGroundVM";
 import FlickVM from "./viewModel/FlickVM";
+import Article from "./view/flick/Article";
+import Toast from "./view/component/toast/Toast";
+import ToastVM from "./viewModel/ToastVM";
 
 /*new Object*/
 const root = document.getElementById("app");
@@ -34,39 +37,48 @@ const App = observer(() => {
     renderLog('app render');
 
     return (
-        <div className={cx('wrap')}>
-            <BrowserRouter>
-                <Header VM={rootVM}/>
-                <Navigation/>
+        <>
+            <div className={cx('wrap')}>
+                <BrowserRouter>
+                    <Header VM={rootVM}/>
+                    <Navigation/>
 
-                <div className={cx('contentContainer')}>
-                    <Route exact path="/" >
-                        <Provider mainVM={new MainVM()}>
-                            <Main/>
-                        </Provider>
-                    </Route>
+                    <div className={cx('contentContainer')}>
+                        <Route exact path="/" >
+                            <Provider mainVM={new MainVM()}>
+                                <Main/>
+                            </Provider>
+                        </Route>
 
-                    <Route path="/life" >
-                        <Provider playGroundVM={new PlayGroundVM()}>
-                            <Life/>
-                        </Provider>
-                    </Route>
+                        <Route path="/life" >
+                            <Provider playGroundVM={new PlayGroundVM()}>
+                                <Life/>
+                            </Provider>
+                        </Route>
 
-                    <Route path="/flick" >
-                        <Provider flickVM={new FlickVM()}>
-                            <Flick/>
-                        </Provider>
-                    </Route>
+                        <Route path="/flick" >
+                            <Provider flickVM={FlickVM.getInstance()}>
+                                <Flick/>
+                            </Provider>
+                        </Route>
 
-                    <Route path="/playground" >
-                        <Provider playGroundVM={new PlayGroundVM()}>
-                            <PlayGround/>
-                        </Provider>
-                    </Route>
-                </div>
-                <Footer/>
-            </BrowserRouter>
-        </div>
+                        <Route path="/playground" >
+                            <Provider playGroundVM={new PlayGroundVM()}>
+                                <PlayGround/>
+                            </Provider>
+                        </Route>
+
+                        <Route path="/article/:sn">
+                            <Provider flickVM={FlickVM.getInstance()}>
+                                <Article/>
+                            </Provider>
+                        </Route>
+                    </div>
+                    <Footer/>
+                </BrowserRouter>
+            </div>
+            <Toast/>
+        </>
     );
 });
 
