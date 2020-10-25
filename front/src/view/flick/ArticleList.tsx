@@ -14,6 +14,10 @@ const ArticleList = observer(() => {
     const {flickVM} = React.useContext(MobXProviderContext);
     const articleList = flickVM.getArticleList;
 
+    const concatKeyword = (keywordList : string[]) => {
+        return keywordList.map(val => `#${val}`).join(' ');
+    };
+
     return (
         <ul className={cx('articleList')}>
             {
@@ -22,7 +26,10 @@ const ArticleList = observer(() => {
                         <li key={article.sn}>
                             <NavLink to={'/article/' + article.sn}>
                                 <h3 className={cx('articleTitle')}>{article.title}</h3>
-                                <div className={cx('articleContent')}>{article.content}</div>
+                                <p className={cx('articleContent')}>{article.content}</p>
+                                {
+                                    article.keyword.length != 0 ? <div className={cx('articleKeyword')}>{concatKeyword(article.keyword)}</div> : null
+                                }
                             </NavLink>
                         </li>
                     );
