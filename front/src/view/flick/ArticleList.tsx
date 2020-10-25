@@ -3,11 +3,11 @@ import {MobXProviderContext, observer} from "mobx-react";
 
 import classNames from 'classnames/bind';
 import css from './Flick.scss';
+const cx = classNames.bind(css);
 import {renderLog} from "@util";
 import ArticleVO from "../../valueObject/ArticleVO";
-import {NavLink} from "react-router-dom";
 
-const cx = classNames.bind(css);
+import {NavLink} from "react-router-dom";
 
 const ArticleList = observer(() => {
     renderLog('articleList');

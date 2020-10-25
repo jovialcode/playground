@@ -6,10 +6,7 @@
 
   @include wrapCenter;
 
-
-  .contentContainer{
-    height: $CONTAINER_MIN_HEIGHT;
-  }
+  height: 100vh;
 
   position: relative;
 

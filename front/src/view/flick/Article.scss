@@ -1,0 +1,23 @@
+@import '$commonCss/variable';
+
+.articleWrap{
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+
+  .article{
+    width: $ARTICLE_WIDTH;
+
+    .title{
+      font-weight: bold;
+      font-size: 27px;
+
+      margin-bottom: 30px;
+    }
+
+    .content{
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+}
